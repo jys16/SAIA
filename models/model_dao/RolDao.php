@@ -40,8 +40,8 @@
 				$dbh = $this->pdo->query($sql);
 				foreach ($dbh->fetchAll() as $rol) {
 					$rolList[] = new RolDto(
-						$rol['codigo_rol'],
-						$rol['nombre_rol']						
+						$rol['id'],
+						$rol['Nombre']						
 					);
 				}
 				return $rolList;
@@ -54,7 +54,7 @@
 		public function getById($idRol){
 			try {
 				# Consulta
-				$sql = "SELECT * FROM ROLES WHERE codigo_rol=:idRol";
+				$sql = "SELECT * FROM ROLES WHERE id=:idRol";
 				# Preparar la BBDD
 				$dbh = $this->pdo->prepare($sql);
 				# Vincular los datos
@@ -65,8 +65,8 @@
 				$rolDb = $dbh->fetch();
 				# Crear el objeto del modelo
 				$rol = new RolDto(
-					$rolDb['codigo_rol'],
-					$rolDb['nombre_rol'],					
+					$rolDb['id'],
+					$rolDb['Nombre'],					
 				);
 				return $rol;
 			} catch (Exception $e) {
@@ -79,9 +79,9 @@
             try {
 				// Crear la Consulta
 				$sql = 'UPDATE ROLES SET
-							codigo_rol = :idRol,
-							nombre_rol = :nombreRol
-						WHERE codigo_rol = :idRol';
+							id = :idRol,
+							Nombre = :nombreRol
+						WHERE id = :idRol';
 
 				// Preparar la BBDD para la consulta
 				$dbh = $this->pdo->prepare($sql);
@@ -101,7 +101,7 @@
 		# Eliminar un Rol
 		public function deleteRolDao($idRol){
 			try {
-				$sql = 'DELETE FROM ROLES WHERE codigo_rol = :idRol';
+				$sql = 'DELETE FROM ROLES WHERE id = :idRol';
 				$dbh = $this->pdo->prepare($sql);
 				$dbh->bindValue('idRol', $idRol);
 				$dbh->execute();

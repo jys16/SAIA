@@ -149,7 +149,7 @@
                                         data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
                                         <i class="fa-brands fa-product-hunt"></i>
-                                        Módulo Productos
+                                        Módulo Insumos
                                     </button>
                                 </h2>
                             </div>
@@ -159,16 +159,16 @@
                                     <div class="card">
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Products&a=createCategory" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Categoría</a>
+                                                <a href="?c=Tools&a=createCategory" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Categoría</a>
                                             </li>
                                             <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Products&a=createProduct" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Producto</a>
+                                                <a href="?c=Tools&a=createProduct" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Producto</a>
                                             </li>
                                             <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Products&a=readCategory" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Categorías</a>
+                                                <a href="?c=Tools&a=readCategory" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Categorías</a>
                                             </li>
                                             <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Products&a=readProduct" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Productos</a>
+                                                <a href="?c=Tools&a=readProduct" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Productos</a>
                                             </li>
                                         </ul>
                                     </div>

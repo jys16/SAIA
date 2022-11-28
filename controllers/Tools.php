@@ -1,5 +1,5 @@
 <?php
-    class Products{
+    class Tools{
         public function __construct(){}
         public function index(){
             require_once "views/roles/admin/header.php";

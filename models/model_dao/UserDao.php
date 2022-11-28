@@ -15,20 +15,20 @@
 			try {
 				// Crear la Consulta
 				$sql = 'CALL pa_registrar_usuario (
-							:idRol,
 							:codigoUser,
-							:nombresUser,
-							:apellidosUser,							
-							:correoUser
+							:apellidosUser,
+							:nombresUser,							
+							:correoUser,
+							:idRol
 						)';
 				// Preparar la BBDD para la consulta
 				$dbh = $this->pdo->prepare($sql);
-				// Vincular los datos del objeto a la consulta de Inserción
-				$dbh->bindValue('idRol',$userDto->getCodigoRol());			
+				// Vincular los datos del objeto a la consulta de Inserción			
 				$dbh->bindValue('codigoUser',$userDto->getCodigoUser());
-				$dbh->bindValue('nombresUser',$userDto->getNombresUser());
 				$dbh->bindValue('apellidosUser',$userDto->getApellidosUser());
+				$dbh->bindValue('nombresUser',$userDto->getNombresUser());
 				$dbh->bindValue('correoUser',$userDto->getCorreoUser());
+				$dbh->bindValue('idRol',$userDto->getCodigoRol());
 				// Ejecutar la consulta
 				$dbh->execute();
 			} catch (Exception $e) {
@@ -47,12 +47,12 @@
 				$dbh = $this->pdo->query($sql);
 				foreach ($dbh->fetchAll() as $user) {
 					$userList[] = new UserDto(
-						$user['codigo_rol'],
-						$user['nombre_rol'],						
-						$user['codigo_user'],						
-						$user['nombres_user'],						
-						$user['apellidos_user'],						
-						$user['correo_user']						
+						$user['id'],
+						$user['Nombre'],						
+						$user['documento'],						
+						$user['apellidos'],						
+						$user['nombres'],						
+						$user['email']						
 					);
 				}
 				return $userList;

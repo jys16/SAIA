@@ -36,19 +36,19 @@
                 </div>
             </div>
             <div class="col px-md-2 pb-md-2 px-0 pb-2">
-                <div class="card h-100">
+                <div class="card h-100">    
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-header bg-dark">
-                        <h5 class="card-title m-0 text-white  text-center">Módulo Productos</h5>
+                        <h5 class="card-title m-0 text-white  text-center">Módulo Insumos</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><a href="?c=Products&a=createCategory" class="card-link">Crear Categoría</a>
+                            <li class="list-group-item"><a href="?c=Tools&a=createCategory" class="card-link">Crear Categoría</a>
                             </li>
-                            <li class="list-group-item"><a href="?c=Products&a=createProduct" class="card-link">Crear Producto</a>
+                            <li class="list-group-item"><a href="?c=Tools&a=createProduct" class="card-link">Crear Producto</a>
                             </li>
-                            <li class="list-group-item"><a href="?c=Products&a=readCategory" class="card-link">Consultar Categorías</a></li>
-                            <li class="list-group-item"><a href="?c=Products&a=readProduct" class="card-link">Consultar Productos</a></li>
+                            <li class="list-group-item"><a href="?c=Tools&a=readCategory" class="card-link">Consultar Categorías</a></li>
+                            <li class="list-group-item"><a href="?c=Tools&a=readProduct" class="card-link">Consultar Productos</a></li>
                         </ul>
                     </div>
                 </div>
