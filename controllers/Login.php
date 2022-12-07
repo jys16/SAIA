@@ -1,20 +1,42 @@
 <?php
-    class Login{
-        public function __construct(){}
+    
+    require_once "models/model_dto/CredentialDto.php";    
+    require_once "models/model_dao/CredentialDao.php";
+
+    class Login{        
+        private $userDao;
+        public function __construct(){            
+            $this->userDao = new CredentialDao;
+        }
         public function index(){
+            // Cargar la Vista del Formulario
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                // require_once "views/roles/business/header.php";
-                // require_once "views/business/login.view.php";
-                // require_once "views/roles/business/footer.php";
+                require_once "views/roles/business/header.php";
                 require_once "views/business/login.view.php";
+                require_once "views/roles/business/footer.php";
             }
-            elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
-                // Capturar Datos
+            // Capturar los Datos del Formulario
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Validar los Datos
                 // Crear el Objeto
+                $userDto = new CredentialDto(
+                    $_POST['correo'], 
+                    $_POST['pass']
+                );                
+                // print_r($userDto);
                 // Comprobar en la base de datos
-                // Redireccionar al Dashboard
-                header("Location: ?c=Dashboard");
+                $userDto = $this->userDao->login($userDto);
+                if ($userDto) {
+                    // Validar si es un Administrador Activo
+                    if ($userDto->getEstadoCredential() == 1) {                        
+                        // Redireccionar al Dashboard
+                        header('Location: ?c=Dashboard');
+                    } else {
+                        header('Location: ?c=Landing');
+                    }
+                } else {
+                    header('Location: ?c=Landing');
+                }
             }
         }
     }

@@ -30,43 +30,54 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
-                            <select name="rol_codigo" id="user_perfil" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
-                                <option value="2">usuario</option>
-                                <option value="3">cliente</option>
-                                <option value="4">empleado</option>
-                                <option value="1">administrador</option>
+                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                               <?php
+                               
+                            //    Conexión a BD
+                               $usuario = 'root';
+                               $password = '';
+                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
+
+                            //    Consulta
+                                $query = $db->prepare("SELECT * FROM roles");
+                                $query->execute();
+                                $data = $query->fetchAll();
+                            
+                            // Foreach con select
+
+                            foreach ($data as $valores):
+                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
+                            endforeach;
+                               ?>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="">Código Usuario</label>
-                            <input name="user_codigo" id="user_codigo" type="text" class="form-control" placeholder="Código Usuario" minlength="5" maxlength="15" title="Ingrese un código válido" required>
+                            <label for="">Documento</label>
+                            <input name="documento" id="documento" type="text" class="form-control" placeholder="Código Usuario" minlength="5" maxlength="15" title="Ingrese un código válido" required>
                         </div>
-                        <div id="foto_group" class="form-group col-md-6 ocultar-control">
-                            <label for="user_foto">Foto</label>
-                            <input type="file" name="credential_foto" class="form-control p-1" id="user_foto">
-                        </div>                        
+
                         <div class="form-group col-md-6">
                             <label for="user_nombres">Nombres</label>
-                            <input name="user_nombres" type="text" class="form-control" id="user_nombres" placeholder="Nombres" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+                            <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_apellidos">Apellidos</label>
-                            <input name="user_apellidos" type="text" class="form-control" id="user_apellidos" placeholder="Apellidos" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+                            <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Apellidos(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_correo">Correo</label>
-                            <input name="user_correo" type="email" class="form-control" id="user_correo" placeholder="usuario@correo.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+                            <input name="email" type="email" class="form-control" id="email" placeholder="usuario@correo.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
 							title="Ingrese un correo válido" required>
                         </div>
                         <div id="doc_identidad_group" class="form-group col-md-6 ocultar-control">
                             <label for="user_doc_identidad">Documento de Identidad</label>
                             <input type="number" name="credential_identificacion" class="form-control" id="user_doc_identidad" placeholder="123456789" min="100000" max="10000000000000" title="Ingrese un documento válido">
                         </div>
-                        <div id="contrasena_us_group" class="form-group col-md-6 ocultar-control">
+                        <div id="contrasena_us_group" class="form-group col-md-6">
                             <label for="user_contrasena">Contraseña</label>
-                            <input type="password" name="credential_pass" class="form-control" id="user_contrasena" placeholder="Entre 5 y 8 caracteres"
+                            <input type="password" name="pass" class="form-control" id="pass" placeholder="Entre 5 y 8 caracteres"
                             pattern="[A-Za-z0-9]{5,8}" title="Entre 5 y 8 caracteres">
                         </div>
                         <div id="confirmacion_group" class="form-group col-md-6 ocultar-control">
@@ -85,9 +96,13 @@
                                 <option value="0">inactivo</option>
                             </select>
                         </div>
-                        <div id="salario_group" class="form-group col-md-6 ocultar-control">
-                            <label for="user_salario">Salario</label>
-                            <input type="number" name="credential_salario" class="form-control text-right" id="user_salario" placeholder="1300000" min="1500000" max="5000000" title="Ingrese un documento válido">
+                        <div id="phone_group" class="form-group col-md-6">
+                            <label for="user_phone">Telefono</label>
+                            <input type="number" name="telefono" class="form-control" id="telefono" placeholder="3134564545" min="1500000" max="5000000" title="Ingrese un telefono valido">
+                        </div>
+                        <div id="foto_group" class="form-group col-md-6">
+                            <label for="user_foto">Foto</label>
+                            <input type="file" name="foto" class="form-control p-1" id="foto">
                         </div>
                     </div>
                     <input type="submit" id="submit-user-create" class="btn btn-info mb-2" value="Enviar">

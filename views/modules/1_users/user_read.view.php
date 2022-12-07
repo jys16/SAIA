@@ -31,9 +31,9 @@
                         <tr>                            
                             <th>Codigo Rol</th>
                             <th>Nombre Rol</th>
-                            <th>Código Usuario</th>
-                            <th>Nombres</th>
+                            <th>Documento</th>
                             <th>Apellidos</th>
+                            <th>Nombres</th>
                             <th>Correo</th>                            
                             <th>Acciones</th>
                         </tr>
@@ -41,11 +41,10 @@
                     <tbody>
                         <?php foreach ($users as $user): ?>
                             <tr>
-                                <td><?php echo $user->getCodigoRol(); ?></td>
-                                <td><?php echo $user->getNombreRol(); ?></td>
-                                <td><?php echo $user->getCodigoUser(); ?></td>
-                                <td><?php echo $user->getNombresUser(); ?></td>
+                                <td><?php echo $user->getIdRol(); ?></td>
+                                <td><?php echo $user->getDocumento(); ?></td>
                                 <td><?php echo $user->getApellidosUser(); ?></td>
+                                <td><?php echo $user->getNombresUser(); ?></td>
                                 <td><?php echo $user->getCorreoUser(); ?></td>
                                 <td class="tabla-acciones">
                                     <a class="tabla-edit" href=""><i class="fas fa-edit"></i></a>
@@ -58,9 +57,9 @@
                         <tr>
                             <th>Codigo Rol</th>
                             <th>Nombre Rol</th>
-                            <th>Código Usuario</th>
-                            <th>Nombres</th>
+                            <th>Documento</th>
                             <th>Apellidos</th>
+                            <th>Nombres</th>
                             <th>Correo</th>                            
                             <th>Acciones</th>
                         </tr>

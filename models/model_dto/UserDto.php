@@ -3,12 +3,19 @@
     class UserDto{
         
         /* ATRIBUTOS */        
-        private $codigoRol;
-        private $nombreRol;
-        private $codigoUser;
-        private $nombresUser;
+        // private $codigoRol;
+        // private $nombreRol;
+        private $documento;
         private $apellidosUser;
+        private $nombresUser;
         private $correoUser;
+        private $pass;
+        private $telefono;
+        private $foto;
+        private $id_rol;
+
+
+
         
         /* SOBRECARGA DE CONSTRUCTORES */
         
@@ -24,48 +31,62 @@
         public function __construct0(){}
 
         // Constructor: Sin Nombre Rol
-        public function __construct5($codigoRol,$codigoUser,$nombresUser,$apellidosUser,$correoUser){
-			$this->codigoRol = $codigoRol;
-			$this->codigoUser = $codigoUser;
+        public function __construct8($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol){
+			$this->documento = $documento;
+            $this->apellidosUser = $apellidosUser;
 			$this->nombresUser = $nombresUser;
-			$this->apellidosUser = $apellidosUser;
 			$this->correoUser = $correoUser;			
+            $this->pass = $pass;
+            $this->telefono = $telefono;
+            $this->foto = $foto;
+            $this->id_rol = $id_rol;
 		}
 
         // Constructor: Con Nombre Rol
-        public function __construct6($codigoRol,$nombreRol,$codigoUser,$nombresUser,$apellidosUser,$correoUser){
-			$this->codigoRol = $codigoRol;
-			$this->nombreRol = $nombreRol;
-			$this->codigoUser = $codigoUser;
-			$this->nombresUser = $nombresUser;
-			$this->apellidosUser = $apellidosUser;
-			$this->correoUser = $correoUser;			
-		}
+        // public function __construct9($codigoRol,$nombreRol,$documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto){
+		// 	$this->codigoRol = $codigoRol;
+		// 	$this->nombreRol = $nombreRol;
+		// 	$this->documento = $documento;
+        //     $this->apellidosUser = $apellidosUser;
+		// 	$this->nombresUser = $nombresUser;
+		// 	$this->correoUser = $correoUser;
+        //     $this->pass = $pass;
+        //     $this->telefono = $telefono;
+        //     $this->foto = $foto;			
+		// }
 
         /* MÉTODOS DE ACCESO: SETTER Y GETTERS*/
         
-        // Código Rol
-        public function setCodigoRol($codigoRol){
-            $this->codigoRol = $codigoRol;
+        // // Código Rol
+        // public function setCodigoRol($codigoRol){
+        //     $this->codigoRol = $codigoRol;
+        // }
+        // public function getCodigoRol(){
+        //     return $this->codigoRol;
+        // }
+
+        // // Nombre Rol
+        // public function setNombreRol($nombreRol){
+        //     $this->nombreRol = $nombreRol;
+        // }
+        // public function getNombreRol(){
+        //     return $this->nombreRol;
+        // }
+
+        // Documento Usuario
+        public function setDocumento($documento){
+            $this->documento = $documento;
         }
-        public function getCodigoRol(){
-            return $this->codigoRol;
+        public function getDocumento(){
+            return $this->documento;
         }
 
-        // Nombre Rol
-        public function setNombreRol($nombreRol){
-            $this->nombreRol = $nombreRol;
+        // Apellidos Usuario
+        public function setApellidosUser($apellidosUser){
+            $this->apellidosUser = $apellidosUser;
         }
-        public function getNombreRol(){
-            return $this->nombreRol;
-        }
-
-        // Código Usuario
-        public function setCodigoUser($codigoUser){
-            $this->codigoUser = $codigoUser;
-        }
-        public function getCodigoUser(){
-            return $this->codigoUser;
+        public function getApellidosUser(){
+            return $this->apellidosUser;
         }
 
         // Nombres Usuario
@@ -76,20 +97,45 @@
             return $this->nombresUser;
         }
 
-        // Código Rol
-        public function setApellidosUser($apellidosUser){
-            $this->apellidosUser = $apellidosUser;
-        }
-        public function getApellidosUser(){
-            return $this->apellidosUser;
-        }
 
-        // Código Rol
+        // Correo Usuario
         public function setCorreoUser($correoUser){
             $this->correoUser = $correoUser;
         }
         public function getCorreoUser(){
             return $this->correoUser;
+        }
+
+        // Password Usuario
+        public function setPass($pass){
+            $this->pass = $pass;
+        }
+        public function getPass(){
+            return $this->pass;
+        }
+
+        // Telefono Usuario
+        public function setTelefono($telefono){
+            $this->telefono = $telefono;
+        }
+        public function getTelefono(){
+            return $this->telefono;
+        }
+
+        // Foto Usuario
+        public function setFoto($foto){
+            $this->foto = $foto;
+        }
+        public function getFoto(){
+            return $this->foto;
+        }
+
+         // id rol
+         public function setIdRol($id_rol){
+            $this->id_rol = $id_rol;
+        }
+        public function getIdRol(){
+            return $this->id_rol;
         }
     }
 
