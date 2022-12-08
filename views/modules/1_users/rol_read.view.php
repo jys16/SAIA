@@ -1,5 +1,5 @@
         <!-- Migas de Pan -->
-        <div class="migas row d-flex align-items-center bg-white border-bottom">
+        <div class="migas row d-flex m-2 align-items-center bg-white border-bottom">
             <div class="col p-0">
                 <div aria-label="breadcrumb">
                     <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
@@ -12,7 +12,7 @@
         </div>
 
         <!-- Título -->
-        <div class="titulo-contenido row">
+        <div class="titulo-contenido m-2 row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
                 <div class="col-5 p-0 d-flex justify-content-start align-items-center">
                     <h5 class="m-0">Consultar Roles</h5>
@@ -24,7 +24,7 @@
         </div>
 
         <!-- Contenido -->
-        <div class="contenido row bg-light p-2">
+        <div class="contenido row bg-light m-2 p-2">
             <div class="cont-tabla col p-0 bg-light">
                 <table id="data-tables" class="display nowrap" style="width:100%">
                     <thead>

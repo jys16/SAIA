@@ -1,5 +1,5 @@
  <!-- Migas de Pan -->
- <div class="migas row d-flex align-items-center bg-white border-bottom">
+ <div class="migas row m-2 d-flex align-items-center bg-white border-bottom">
             <div class="col p-0">
                 <div aria-label="breadcrumb">
                     <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
@@ -12,7 +12,7 @@
         </div>
         
         <!-- Título -->
-        <div class="titulo-contenido row">
+        <div class="titulo-contenido m-2 row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
                 <div class="col-5 p-0 d-flex justify-content-start align-items-center">
                     <h5 class="m-0">Crear Usuario</h5>
@@ -24,7 +24,7 @@
         </div>
 
         <!-- Contenido -->
-        <div class="contenido row bg-light p-2">
+        <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
                 <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
                     <div class="form-row">
