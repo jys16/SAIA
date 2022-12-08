@@ -1,29 +1,43 @@
-        </main>
-		</section>
-		<!-- Pie de Página -->
-		<footer class="row text-light">
-			<div class="pie-izq col-lg-3 row p-2 d-flex align-items-center justify-content-center text-center bg-dark">
-				<a class="col ocul-panel" href="?c=Dashboard&a=email">
-					<i class="fa-solid fa-envelope"></i>
-				</a>
-				<a class="col ocul-panel" href="?c=Dashboard&a=calendar">
-					<i class="fa-solid fa-calendar-days"></i>
-				</a>
-				<a class="col ocul-panel" href="?c=Dashboard&a=activities">
-					<i class="fa-solid fa-list-check"></i>
-				</a>
-				<a class="col ocul-panel" href="?c=Logout">
-					<i class="fa-sharp fa-solid fa-right-from-bracket"></i>
-				</a>
-			</div>
-			<div class="pie-der col-lg-9 p-2 d-flex flex-column justify-content-center bg-info">
-				<p class="p-0 m-0 text-center">Todos los Derechos Reservados a:</p>
-				<p class="p-0 m-0 text-center">Equipo SAIA - ADSI © 2022</p>
-				<p class="p-0 m-0 text-center">sflimas2@misena.edu.co / sleon@misena.edu.co</p>
-			</div>
-		</footer> 
-	</div>
-	<script src="assets/js/jquery.slim.min.js"></script>
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">SAIA system</a>, All Right Reserved. 
+                        </div>
+                        <!-- <div class="col-12 col-sm-6 text-center text-sm-end"> -->
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            <!-- Contated By <a href="https://htmlcodex.com">HTML Codex</a> -->
+                        <!-- </br> -->
+                        <!-- Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/chart/chart.min.js"></script>
+    <script src="assets/lib/easing/easing.min.js"></script>
+    <script src="assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- scripts datatables -->
+
+    <script src="assets/js/jquery.slim.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/sweetalert.min.js"></script>
@@ -42,6 +56,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.js"></script> 
 	<script src="assets/js/scripts-dash.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

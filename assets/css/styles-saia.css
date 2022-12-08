@@ -491,3 +491,7 @@ select {
     background-color: #fff;
     color: #0087FF;
 }
+
+.footer {
+    align-self: flex-end;
+}

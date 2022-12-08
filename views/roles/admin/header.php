@@ -2,9 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Información</title>
+    <meta charset="utf-8">
+    <title>SAIA - Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="assets/img/logoSAIA.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- styles Datatables -->
+
     <link rel="shortcut icon" href="assets/img/css.png">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
@@ -12,292 +33,167 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css">
-    <link rel="stylesheet" href="assets/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles-dashboard-bootstrap4.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Contenedor -->
-    <div class="container-fluid captura-id">
-        <!-- Navegador -->
-        <nav class="row fixed-top">
-            <!-- Logo -->
-            <div
-                class="logo row col-lg-3 d-flex align-items-center justify-content-center bg-light border-right border-bottom">
-                <img src="assets/img/logoSAIA.png" class="text-center" alt="Logo">
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
             </div>
-            <!-- Menú -->
-            <div class="menu row col-lg-9 p-0 d-flex align-items-center bg-info">
-                <div class="col navbar navbar-expand-lg navbar-light bg-info p-lg-0">
-                    <div class="btn-menu-lateral px-lg-3"><i id="btn-menu-lateral" class="fas fa-exchange-alt"></i>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="?c=Dashboard" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><img class="" src="assets/img/logoSAIA.png" alt="" style=" width: 40px; height: 40px;">  SAIA</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
-                    <button class="navbar-toggler pr-0" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon bg-white"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link ocul-navbar" href="?c=Dashboard">
-                                    <i class="fa-solid fa-house-chimney-user"></i>
-                                    Inicio
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav pr-4">
-                            <li class="nav-item">
-                                <a class="nav-link ocul-navbar" href="?c=Dashboard&a=email">
-                                    <i class="fa-solid fa-envelope"></i>
-                                    Correo
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link ocul-navbar" href="?c=Dashboard&a=calendar">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                    Calendario
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link ocul-navbar" href="?c=Dashboard&a=activities">
-                                    <i class="fa-solid fa-list-check"></i>
-                                    Actividades
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                    Administrador
-                                </a>
-                                <div class="dropdown-menu  dropdown-menu-right">
-                                    <a class="dropdown-item ocul-navbar" href="?c=Users&a=configUser">Configuración</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item ocul-navbar" href="?c=Logout">Cerrar Sesión</a>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Rodrigo Rodriguez</h6>
+                        <span>Admin</span>
                     </div>
                 </div>
-            </div>
-        </nav>
-        <!-- Principal -->
-        <section class="row">
-            <!-- Panel Lateral -->
-            <aside id="panel-lateral" class="col-12 col-lg-3 p-0 bg-light">
-                <div id="config" class="config row d-flex justify-content-center p-2 py-lg-4">
-                    <div id="config-img"
-                        class="col-5 row p-lg-1 p-1 d-flex flex-column align-items-center justify-content-center bg-info rounded">
-                        <img src="assets/img/usuario.png" class="p-0 bg-white rounded" alt="">
+                <div class="navbar-nav w-100">
+                    <a href="?c=Dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>usuarios</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="?c=Users&a=createRol" class="dropdown-item">Crear Rol</a>
+                            <a href="?c=Users&a=readRol" class="dropdown-item">Ver Roles</a>
+                            <a href="?c=Users&a=createUser" class="dropdown-item">Crea Usuario</a>
+                            <a href="?c=Users&a=readUser" class="dropdown-item">Ver Usuarios</a>
+                        </div>
                     </div>
-                    <div id="config-text"
-                        class="col-7 p-3 d-flex flex-column justify-content-center font-weight-bold bg-light">
-                        <p class="m-0">Pepito Perez</p>
-                        <p class="m-0">Administrador</p>
-                        <a href="?c=Users&a=configUser" class="m-0 ocul-panel">Configuración</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Herramienta y rep</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="button.html" class="dropdown-item">Crear Rol</a>
+                            <a href="typography.html" class="dropdown-item">Ver Roles</a>
+                            <a href="element.html" class="dropdown-item">Crea Usuario</a>
+                            <a href="element.html" class="dropdown-item">Ver Usuarios</a>
+                        </div>
                     </div>
-                </div>
-                <div id="modulos" class="modulos row bg-white border-top">
-                    <div class="accordion col p-lg-0 p-2" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header p-3" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left collapsed p-2" type="input"
-                                        data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
-                                        aria-controls="collapseOne">
-                                        <i class="fa-solid fa-users"></i>
-                                        Módulo Usuarios
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                data-parent="#accordionExample">
-                                <div class="card-body p-lg-1">
-                                    <div class="card">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Users&a=configUser"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Configuración</a>
-                                            </li>
-											<li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Users&a=createRol" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">CrearRol</a>
-                                            </li>
-											<li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Users&a=readRol" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Roles</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Users&a=createUser" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Usuario</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Users&a=readUser" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Usuarios sin Credenciales</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Users&a=readUserCred" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Usuarios con Credenciales</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header p-3" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">
-                                        <i class="fa-brands fa-product-hunt"></i>
-                                        Módulo Insumos
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionExample">
-                                <div class="card-body p-lg-1">
-                                    <div class="card">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Tools&a=createCategory" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Categoría</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Tools&a=createProduct" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Producto</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Tools&a=readCategory" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Categorías</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Tools&a=readProduct" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Productos</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header p-3" id="headingThree">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        <i class="fa-sharp fa-solid fa-shop"></i>
-                                        Módulo Compras
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordionExample">
-                                <div class="card-body p-lg-1">
-                                    <div class="card">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Purchases&a=createBuy" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear Compra</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="?c=Purchases&a=readBuy" class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar Compra</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header p-3" id="headingThree">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        Módulo Ventas
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseFour" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordionExample">
-                                <div class="card-body p-lg-1">
-                                    <div class="card">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="modules/4_sale/sale_create.html" target="area_trabajo"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Crear
-                                                    Venta</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="modules/4_sale/sale_read.html" target="area_trabajo"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar
-                                                    Ventas</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header p-3" id="headingFour">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
-                                        aria-controls="collapseFive">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Módulo Inventario
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseFive" class="collapse" aria-labelledby="headingFour"
-                                data-parent="#accordionExample">
-                                <div class="card-body p-lg-1">
-                                    <div class="card">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="modules/5_inventory/inventory_read.html" target="area_trabajo"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar
-                                                    Inventario</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="modules/5_inventory/inventory_read_tls.html"
-                                                    target="area_trabajo"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Consultar
-                                                    Totales</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header p-3" id="headingFour">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-block text-left collapsed" type="button"
-                                        data-toggle="collapse" data-target="#collapseSix" aria-expanded="false"
-                                        aria-controls="collapseSix">
-                                        <i class="fa-solid fa-chart-pie"></i>
-                                        Módulo Reportes
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseSix" class="collapse" aria-labelledby="headingFour"
-                                data-parent="#accordionExample">
-                                <div class="card-body p-lg-1">
-                                    <div class="card">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="modules/6_reports/report_graph.html" target="area_trabajo"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Reportes
-                                                    Gráficos</a>
-                                            </li>
-                                            <li class="list-group-item p-0 bg-light">
-                                                <a href="modules/6_reports/report_print.html" target="area_trabajo"
-                                                    class="card-link d-block p-2 px-lg-3 py-lg-1 ocul-panel">Reportes
-                                                    Impresos</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a>
                         </div>
                     </div>
                 </div>
-            </aside>
-            <!-- Área de Trabajo -->
-            <main id="area_principal" class="col-12 col-lg-9 p-0">
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+       <!-- Content Start -->
+       <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Mensajes</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Rodrigo envió un mensaje</h6>
+                                        <small>Hace 15 minutos</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon recibió un mensaje</h6>
+                                        <small>Hace 15 minutos</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Rodrigo recibió un mensaje</h6>
+                                        <small>Hace 15 minutos</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">Ver todos los Mensajes</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificaciones</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Perfil actualizado</h6>
+                                <small>Hace 10 minutos</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Nuevo usuario agregado</h6>
+                                <small>Hace 15 minutos</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Cambio de contraseña</h6>
+                                <small>Hace 20 minutos</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">Ver todas las Notificaciones</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Rodrigo Rodriguez</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">Mi perfil</a>
+                            <a href="#" class="dropdown-item">Configurar</a>
+                            <a href="#" class="dropdown-item">Salir</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->

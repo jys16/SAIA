@@ -14,11 +14,11 @@
         <!-- Título -->
         <div class="titulo-contenido row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
-                <div class="col-6 p-0 d-flex justify-content-start align-items-center">
+                <div class="col-5 p-0 d-flex justify-content-start align-items-center">
                     <h5 class="m-0">Consultar Roles</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Users&a=createRol" class="btn btn-light">Crear Rol</a>
+                    <a href="?c=Users&a=createRol" class="btn btn-primary">Crear Rol</a>
                 </div>
             </div>
         </div>

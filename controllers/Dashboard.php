@@ -4,7 +4,7 @@
         public function index(){
             require_once "views/roles/admin/header.php";
             require_once "views/roles/admin/admin_main.view.php";
-            require_once "views/roles/admin/footer.php";
+            // require_once "views/roles/admin/footer.php";
         }
         public function email(){
             require_once "views/roles/admin/header.php";

@@ -1,5 +1,5 @@
-        <!-- Migas de Pan -->
-        <div class="migas row d-flex align-items-center bg-white border-bottom">
+ <!-- Migas de Pan -->
+ <div class="migas row d-flex align-items-center bg-white border-bottom">
             <div class="col p-0">
                 <div aria-label="breadcrumb">
                     <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
@@ -14,11 +14,11 @@
         <!-- Título -->
         <div class="titulo-contenido row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
-                <div class="col-6 p-0 d-flex justify-content-start align-items-center">
+                <div class="col-5 p-0 d-flex justify-content-start align-items-center">
                     <h5 class="m-0">Crear Usuario</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Users&a=readUser" class="btn btn-light">Consultar Usuarios</a>
+                    <a href="?c=Users&a=readUser" class="btn btn-primary">Consultar Usuarios</a>
                 </div>
             </div>
         </div>
@@ -26,9 +26,9 @@
         <!-- Contenido -->
         <div class="contenido row bg-light p-2">
             <div class="col p-0 bg-light">
-                <form id="formUserCreate" name="formUserCreate" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                    <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
                             <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
                                <?php
@@ -71,10 +71,6 @@
                             <input name="email" type="email" class="form-control" id="email" placeholder="usuario@correo.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
 							title="Ingrese un correo válido" required>
                         </div>
-                        <div id="doc_identidad_group" class="form-group col-md-6 ocultar-control">
-                            <label for="user_doc_identidad">Documento de Identidad</label>
-                            <input type="number" name="credential_identificacion" class="form-control" id="user_doc_identidad" placeholder="123456789" min="100000" max="10000000000000" title="Ingrese un documento válido">
-                        </div>
                         <div id="contrasena_us_group" class="form-group col-md-6">
                             <label for="user_contrasena">Contraseña</label>
                             <input type="password" name="pass" class="form-control" id="pass" placeholder="Entre 5 y 8 caracteres"
@@ -83,11 +79,7 @@
                         <div id="confirmacion_group" class="form-group col-md-6 ocultar-control">
                             <label for="user_confirmacion">Confirmación</label>
                             <input type="password" name="credential_confirm" class="form-control" id="user_confirmacion" placeholder="Confirmar contraseña" pattern="[A-Za-z0-9]{5,8}" title="Entre 5 y 8 caracteres">
-                        </div>
-                        <div id="fechaNac_group" class="form-group col-md-6 ocultar-control">
-                            <label for="user_fecha_nac">Fecha Nacimiento</label>
-                            <input type="date" name="credential_fecha_nac" class="form-control" id="user_fecha_nac" placeholder="Fecha de Nacimiento">
-                        </div>                        
+                        </div>                       
                         <div id="estado_group" class="form-group col-md-6 ocultar-control">
                             <label for="user_estado">Estado</label>
                             <select name="credential_estado" class="form-control" id="user_estado">
@@ -98,15 +90,16 @@
                         </div>
                         <div id="phone_group" class="form-group col-md-6">
                             <label for="user_phone">Telefono</label>
-                            <input type="number" name="telefono" class="form-control" id="telefono" placeholder="3134564545" min="1500000" max="5000000" title="Ingrese un telefono valido">
+                            <input type="text" name="telefono" class="form-control" id="telefono" placeholder="3134564545" title="Ingrese un telefono valido">
                         </div>
                         <div id="foto_group" class="form-group col-md-6">
                             <label for="user_foto">Foto</label>
                             <input type="file" name="foto" class="form-control p-1" id="foto">
                         </div>
-                    </div>
-                    <input type="submit" id="submit-user-create" class="btn btn-info mb-2" value="Enviar">
-                    <button type="button" id="submit-user-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
+                    </div>                    
+                    <br>
+                        <input type="submit" class="btn btn-secondary mb-2" value="Enviar">
+                        <button type="button" id="submit-rol-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
                 </form>
             </div>
         </div>

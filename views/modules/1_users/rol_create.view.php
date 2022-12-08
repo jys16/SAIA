@@ -14,11 +14,11 @@
         <!-- Título -->
         <div class="titulo-contenido row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
-                <div class="col-6 p-0 d-flex justify-content-start align-items-center">
+                <div class="col-5 p-0 d-flex justify-content-start align-items-center">
                     <h5 class="m-0">Crear Rol</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Users&a=readRol" class="btn btn-light">Consultar Roles</a>
+                    <a href="?c=Users&a=readRol" class="btn btn-primary">Consultar Roles</a>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <!-- Contenido -->
         <div class="contenido row bg-light p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class="card p-3 bg-dark text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class="card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="rol_codigo">Código Rol</label>
@@ -38,8 +38,9 @@
                             <input type="text" class="form-control" name="rol_nombre" id="rol_nombre" placeholder="Nombre" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
+                        <br>
                     </div>                    
-                        <input type="submit" class="btn btn-info mb-2" value="Enviar">
+                        <input type="submit" class="btn btn-secondary mb-2" value="Enviar">
                         <button type="button" id="submit-rol-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
                 </form>
             </div>
