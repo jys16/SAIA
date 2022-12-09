@@ -26,7 +26,7 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
@@ -76,7 +76,7 @@
                             <input type="password" name="pass" class="form-control" id="pass" placeholder="Entre 5 y 8 caracteres"
                             pattern="[A-Za-z0-9]{5,8}" title="Entre 5 y 8 caracteres">
                         </div>
-                        <div id="confirmacion_group" class="form-group col-md-6 ocultar-control">
+                        <!-- <div id="confirmacion_group" class="form-group col-md-6 ocultar-control">
                             <label for="user_confirmacion">Confirmación</label>
                             <input type="password" name="credential_confirm" class="form-control" id="user_confirmacion" placeholder="Confirmar contraseña" pattern="[A-Za-z0-9]{5,8}" title="Entre 5 y 8 caracteres">
                         </div>                       
@@ -87,7 +87,7 @@
                                 <option value="1">activo</option>
                                 <option value="0">inactivo</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div id="phone_group" class="form-group col-md-6">
                             <label for="user_phone">Telefono</label>
                             <input type="text" name="telefono" class="form-control" id="telefono" placeholder="3134564545" title="Ingrese un telefono valido">

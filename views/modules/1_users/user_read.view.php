@@ -30,7 +30,7 @@
                     <thead>
                         <tr>                            
                             <th>Codigo Rol</th>
-                            <th>Nombre Rol</th>
+                            <!-- <th>Nombre Rol</th> -->
                             <th>Documento</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
@@ -42,6 +42,7 @@
                         <?php foreach ($users as $user): ?>
                             <tr>
                                 <td><?php echo $user->getIdRol(); ?></td>
+                                <!-- <td></td> -->
                                 <td><?php echo $user->getDocumento(); ?></td>
                                 <td><?php echo $user->getApellidosUser(); ?></td>
                                 <td><?php echo $user->getNombresUser(); ?></td>
@@ -56,7 +57,7 @@
                     <tfoot>
                         <tr>
                             <th>Codigo Rol</th>
-                            <th>Nombre Rol</th>
+                            <!-- <th>Nombre Rol</th> -->
                             <th>Documento</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
