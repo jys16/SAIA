@@ -42,23 +42,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($users as $user): ?>
+                        <!-- <?php foreach ($users as $user): ?> -->
                             <tr>
-                                <td><?php echo $user->getIdRol(); ?></td>
+                                <!-- <td><?php echo $user->getIdRol(); ?></td> -->
                                 <!-- <td></td> -->
-                                <td><?php echo $user->getDocumento(); ?></td>
+                                <!-- <td><?php echo $user->getDocumento(); ?></td>
                                 <td><?php echo $user->getApellidosUser(); ?></td>
                                 <td><?php echo $user->getNombresUser(); ?></td>
                                 <td><?php echo $user->getCorreoUser(); ?></td>
                                 <td><?php echo $user->getPass(); ?></td>
                                 <td><?php echo $user->getTelefono(); ?></td>
-                                <td><?php echo $user->getFoto(); ?></td>
+                                <td><?php echo $user->getFoto(); ?></td> -->
                                 <td class="tabla-acciones">
                                     <a class="tabla-edit" href="?c=Users&a=updateUser&documento=<?php echo $user->getDocumento(); ?>"><i class="fas fa-edit"></i></a>
                                     <a class="tabla-delete" href="?c=Users&a=deleteUser&documento=<?php echo $user->getDocumento(); ?>" onclick="deleteUser()"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <!-- <?php endforeach; ?> -->
                     </tbody>
                     <tfoot>
                         <tr>

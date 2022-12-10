@@ -60,7 +60,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="assets/img/admin-user.png" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
@@ -71,33 +71,51 @@
                 <div class="navbar-nav w-100">
                     <a href="?c=Dashboard" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>usuarios</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-users me-2"></i>usuarios</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="?c=Users&a=createRol" class="dropdown-item">Crear Rol</a>
-                            <a href="?c=Users&a=readRol" class="dropdown-item">Ver Roles</a>
+                            <a href="?c=Users&a=readRol" class="dropdown-item">Consultar Roles</a>
                             <a href="?c=Users&a=createUser" class="dropdown-item">Crea Usuario</a>
-                            <a href="?c=Users&a=readUser" class="dropdown-item">Ver Usuarios</a>
+                            <a href="?c=Users&a=readUser" class="dropdown-item">Consultar Usuarios</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Herramienta y rep</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-car me-2"></i>Insumos taller</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Crear Rol</a>
-                            <a href="typography.html" class="dropdown-item">Ver Roles</a>
-                            <a href="element.html" class="dropdown-item">Crea Usuario</a>
-                            <a href="element.html" class="dropdown-item">Ver Usuarios</a>
+                            <a href="?c=Supplies&a=createCategory" class="dropdown-item">Crear Categoria</a>
+                            <a href="?c=Supplies&a=readCategory" class="dropdown-item">Consultar Categorias</a>
+                            <a href="?c=Supplies&a=createSupplie" class="dropdown-item">Ingresar Insumos</a>
+                            <a href="?c=Supplies&a=readSupplie" class="dropdown-item">Consultar Insumos</a>
                         </div>
                     </div>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-shopping-cart me-2"></i>Compras</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Sign In</a>
-                            <a href="signup.html" class="dropdown-item">Sign Up</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                            <a href="blank.html" class="dropdown-item">Blank Page</a>
+                            <a href="button.html" class="dropdown-item">Ingresar Compra</a>
+                            <a href="typography.html" class="dropdown-item">Consultar Compra</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-credit-card me-2"></i>Ventas</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="button.html" class="dropdown-item">Ingresar Venta</a>
+                            <a href="typography.html" class="dropdown-item">Consultar venta</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cubes me-2"></i>Inventarios</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="button.html" class="dropdown-item">Consultar stock</a>
+                            <a href="typography.html" class="dropdown-item">Consultar Historial</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Reportes</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="button.html" class="dropdown-item">Reporte graficos</a>
+                            <a href="typography.html" class="dropdown-item">Reportes impresos</a>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -117,7 +135,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
+                    <input class="form-control border-0" type="search" placeholder="Buscar">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
@@ -128,7 +146,7 @@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="assets/img/admin-user.png" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Rodrigo envió un mensaje</h6>
                                         <small>Hace 15 minutos</small>
@@ -138,7 +156,7 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="assets/img/admin-user.png" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon recibió un mensaje</h6>
                                         <small>Hace 15 minutos</small>
@@ -148,7 +166,7 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="assets/img/admin-user.png" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Rodrigo recibió un mensaje</h6>
                                         <small>Hace 15 minutos</small>
@@ -185,7 +203,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="assets/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="assets/img/admin-user.png" alt="" style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Rodrigo Rodriguez</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
