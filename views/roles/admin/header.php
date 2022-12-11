@@ -91,29 +91,33 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-shopping-cart me-2"></i>Compras</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Ingresar Compra</a>
-                            <a href="typography.html" class="dropdown-item">Consultar Compra</a>
+                            <a href="?c=Purchases&a=createSupplier" class="dropdown-item">Crear Proveedor</a>
+                            <a href="?c=Purchases&a=readSupplier" class="dropdown-item">Consultar Proveedores</a>
+                            <a href="?c=Purchases&a=createBuy" class="dropdown-item">Ingresar Compra</a>
+                            <a href="?c=Purchases&a=readBuy" class="dropdown-item">Consultar Compras</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-credit-card me-2"></i>Ventas</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Ingresar Venta</a>
-                            <a href="typography.html" class="dropdown-item">Consultar venta</a>
+                            <a href="?c=Sales&a=createClient" class="dropdown-item">Crear Cliente</a>
+                            <a href="?c=Sales&a=readClient" class="dropdown-item">Consultar Clientes</a>
+                            <a href="?c=Sales&a=createSale" class="dropdown-item">Ingresar Venta</a>
+                            <a href="?c=Sales&a=readSale" class="dropdown-item">Consultar Ventas</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cubes me-2"></i>Inventarios</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Consultar stock</a>
-                            <a href="typography.html" class="dropdown-item">Consultar Historial</a>
+                            <a href="?c=Inventories&a=readStock" class="dropdown-item">Consultar stock</a>
+                            <a href="?c=Inventories&a=readHistory" class="dropdown-item">Consultar Historial</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Reportes</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Reporte graficos</a>
-                            <a href="typography.html" class="dropdown-item">Reportes impresos</a>
+                            <a href="?c=Reports&a=reportGraphics" class="dropdown-item">Reporte graficos</a>
+                            <a href="?c=Reports&a=reportPrinted" class="dropdown-item">Reportes impresos</a>
                         </div>
                     </div>
                         </div>
