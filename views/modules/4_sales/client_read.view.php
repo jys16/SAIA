@@ -4,8 +4,8 @@
                 <div aria-label="breadcrumb">
                     <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
                         <li class="breadcrumb-item"><a href="?c=Dashboard">Inicio</a></li>
-                        <li class="breadcrumb-item">Módulo Insumos de taller</li>
-                        <li class="breadcrumb-item active" aria-current="page">Consultar Insumos</li>
+                        <li class="breadcrumb-item">Módulo Ventas</li>
+                        <li class="breadcrumb-item active" aria-current="page">Consultar Clientes</li>
                     </ol>
                 </div>
             </div>
@@ -15,10 +15,10 @@
         <div class="titulo-contenido row m-2">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
                 <div class="col-6 p-0 d-flex justify-content-start align-items-center">
-                    <h5 class="m-0">Consultar Insumos</h5>
+                    <h5 class="m-0">Consultar Clientes</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Supplies&a=createSupplie" class="btn btn-primary">Ingresar Insumo</a>
+                    <a href="?c=Supplies&a=createSupplie" class="btn btn-primary">Crear Cliente</a>
                 </div>
             </div>
         </div>
@@ -29,16 +29,13 @@
                 <table id="data-tables" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>                            
-                            <th>Categoria</th>
-                            <!-- <th>Nombre Rol</th> -->
-                            <th>Codigo</th>
-                            <th>Nombre</th>
+                            <th>Documento</th>
+                            <th>Apellidos</th>
+                            <th>Nombres</th>
                             <th>Marca</th>
-                            <th>Referencia</th>
-                            <th>Tipo</th>
-                            <th>Num Factura</th>
-                            <th>Estado</th>
-                            <th>Quien registra</th>
+                            <th>Correo</th>
+                            <th>Dirección</th>
+                            <th>Telefono</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -63,16 +60,13 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                        <th>Categoria</th>
-                            <!-- <th>Nombre Rol</th> -->
-                            <th>Codigo</th>
-                            <th>Nombre</th>
+                            <th>Documento</th>
+                            <th>Apellidos</th>
+                            <th>Nombres</th>
                             <th>Marca</th>
-                            <th>Referencia</th>
-                            <th>Tipo</th>
-                            <th>Num Factura</th>
-                            <th>Estado</th>
-                            <th>Quien registra</th>
+                            <th>Correo</th>
+                            <th>Dirección</th>
+                            <th>Telefono</th>
                             <th>Acciones</th>
                         </tr>
                     </tfoot>
