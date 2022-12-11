@@ -44,7 +44,7 @@
                                     <a class="tabla-delete" href="?c=Users&a=deleteRol&idRol=<?php echo $rol->getCodigoRol(); ?>" ><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <!-- <?php endforeach; ?> -->
                     </tbody>
                     <tfoot>
                         <tr>

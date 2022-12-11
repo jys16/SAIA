@@ -4,8 +4,8 @@
                 <div aria-label="breadcrumb">
                     <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
                         <li class="breadcrumb-item"><a href="?c=Dashboard">Inicio</a></li>
-                        <li class="breadcrumb-item">Módulo Insumos de taller</li>
-                        <li class="breadcrumb-item active" aria-current="page">Ingresar Insumo</li>
+                        <li class="breadcrumb-item">Módulo Compras</li>
+                        <li class="breadcrumb-item active" aria-current="page">Ingresar Compra</li>
                     </ol>
                 </div>
             </div>
@@ -15,10 +15,10 @@
         <div class="titulo-contenido m-2 row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
                 <div class="col-5 p-0 d-flex justify-content-start align-items-center">
-                    <h5 class="m-0">Ingresar Insumo</h5>
+                    <h5 class="m-0">Ingresar Compra</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Supplies&a=readSupplie" class="btn btn-primary">Consultar Insumos</a>
+                    <a href="?c=Purchases&a=readBuy" class="btn btn-primary">Consultar Compras</a>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
                 <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
-                            <label for="user_perfil">Categoria</label>
-                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <label for="user_perfil">Proveedor</label>
+                            <select name="nit_proveedor" id="nit_proveedor" class="form-control class-proveedor" title="Ingrese Un Proveedor Válido" required>                                
                                <?php
                                
                             //    Conexión a BD
@@ -39,55 +39,37 @@
                                $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
 
                             //    Consulta
-                                $query = $db->prepare("SELECT * FROM categorias");
+                                $query = $db->prepare("SELECT * FROM proveedores");
                                 $query->execute();
                                 $data = $query->fetchAll();
                             
                             // Foreach con select
 
                             foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
+                                echo '<option value="'.$valores["nit"].'">'.$valores["Nombre"].'</option>';
                             endforeach;
                                ?>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Codigo</label>
-                            <input name="codigo" id="codigo" type="text" class="form-control" placeholder="Código Insumo" minlength="5" maxlength="15" title="Ingrese un código válido" required>
+                            <input name="codigo" id="codigo" type="text" class="form-control" placeholder="Código Factura" minlength="5" maxlength="15" title="Ingrese un código válido" required>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="insumos_nombres">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre insumo" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Nombre(s) Válido(s)" required>
+                            <label for="fecha_factura">Fecha</label>
+                            <input name="fecha" type="date" class="form-control" id="fecha" placeholder="Fecha registro factura" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+							title="Ingrese una fecha valida" required>
+                        </div>
+                        <div id="factura_group" class="form-group col-md-6">
+                            <label for="factura">Factura</label>
+                            <input type="file" name="foto" class="form-control p-1" id="foto" title="suba la factura">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="insumos_Marca">Marca</label>
-                            <input name="marca" type="text" class="form-control" id="marca" placeholder="Marca insumo" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese una marca valida" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="insumo_referencia">Referencia</label>
-                            <input name="referencia" type="text" class="form-control" id="referencia" placeholder="Referencia insumo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese una referencia valida" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="insumo_tipo">Tipo</label>
-                            <input name="tipo" type="text" class="form-control" id="tipo" placeholder="Tipo insumo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese un tipo valido" required>
-                        </div>
-                        <div id="factura-group" class="form-group col-md-6">
-                            <label for="factura-compra">Numero factura</label>
-                            <input type="text" name="factura-compra" class="form-control" id="factura-compra" placeholder="Numero de factura" title="Ingrese un numero de factura valido">
-                        </div>
-                        <div id="estado_group" class="form-group col-md-6">
-                            <label for="estado_insumo">Estado</label>
-                            <input type="text" name="estado_insumo" placeholder="tipo select" class="form-control p-1" id="estado_insumo">
-                        </div>
-                        <div id="foto_group" class="form-group col-md-6">
-                            <label for="documento_usuario">Quien registra</label>
-                            <input type="text" name="documento_usuario" placeholder="tipo select" class="form-control p-1" id="documento_usuario">
-                        </div>
+                            <label for="valor_factura">Valor</label>
+                            <input name="valor" type="number" class="form-control" id="valor" placeholder="Valor Factura" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+							title="Ingrese un valor valido" required>
+                    </div>
                     </div>                    
                     <br>
                         <input type="submit" class="btn btn-secondary mb-2" value="Enviar">
