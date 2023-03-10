@@ -26,22 +26,22 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class="card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
+                <form id="formCategoryCreate" name="formCategoryCreate" class="card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Supplies&a=createCategory" method="post" novalidate>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="rol_codigo">Código Categoria</label>
-                            <input type="text" class="form-control" name="id_categoria" id="id_categoria" placeholder="Código" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+                            <label for="Categoria_codigo">Código Categoria</label>
+                            <input type="text" class="form-control" name="categoria_codigo" id="categoria_codigo" placeholder="Código" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="rol_nombre">Nombre Categoria</label>
-                            <input type="text" class="form-control" name="nombre_categoria" id="nombre" placeholder="Nombre" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
+                            <label for="categoria_nombre">Nombre Categoria</label>
+                            <input type="text" class="form-control" name="categoria_nombre" id="categoria_nombre" placeholder="Nombre" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <br>
                     </div>                    
                         <input type="submit" class="btn btn-secondary mb-2" value="Enviar">
-                        <button type="button" id="submit-rol-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
+                        <button type="button" id="submit-category-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
                 </form>
             </div>
         </div>

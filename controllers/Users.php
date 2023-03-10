@@ -96,24 +96,13 @@
                     }
                 }
 
-        // Consultar Usuarios sin Credenciales
+        // Consultar Usuarios
         public function readUser(){
             $users = $this->userDao->readUserDao();            
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/1_users/user_read.view.php";            
             require_once "views/roles/admin/footer.php";
         }
-        /*
-        // Consultar Usuarios con Credenciales
-        public function readUserCred(){
-            // $users = $this->userDao->readUserDao();            
-            require_once "views/roles/admin/header.php";
-            echo "Con Credenciales";
-            // require_once "views/modules/1_users/user_read.view.php";            
-            require_once "views/roles/admin/footer.php";
-        }
-        */
-
         
         // Actualizar Usuario
         public function updateUser(){
@@ -135,7 +124,7 @@
                     $_POST['foto'],
                     $_POST['id_rol']
                 );
-                $this->userDao->updateRolDao($userDto);
+                $this->userDao->updateUserDao($userDto);
                 header("Location: ?c=Users&a=readUser");
             }
         }
