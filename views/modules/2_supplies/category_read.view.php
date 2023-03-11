@@ -40,8 +40,8 @@
                                 <td><?php echo $category->getCodigoCategoria(); ?></td>
                                 <td><?php echo $category->getNombreCategoria(); ?></td>
                                 <td class="tabla-acciones">
-                                    <a class="tabla-edit" href="?c=Users&a=updateRol&idRol=<?php echo $category->getCodigoCategoria(); ?>"><i class="fas fa-edit"></i></a>
-                                    <a class="tabla-delete" href="?c=Users&a=deleteRol&idRol=<?php echo $category->getCodigoCategoria(); ?>" ><i class="fas fa-trash-alt"></i></a>
+                                    <a class="tabla-edit" href="?c=Supplies&a=updateCategory&idCategoria=<?php echo $category->getCodigoCategoria(); ?>"><i class="fas fa-edit"></i></a>
+                                    <a class="tabla-delete" href="?c=Supplies&a=deleteCategory&idCategoria=<?php echo $category->getCodigoCategoria(); ?>" ><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

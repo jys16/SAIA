@@ -44,51 +44,51 @@
 						$category['Nombre']						
 					);
 				}
-				return $categoryList;
+				return $categoryList; 
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
 		}
 
-		# Obtener IdRol
-		public function getById($idRol){
+		# Obtener IdCategoria
+		public function getById($idCategoria){
 			try {
 				# Consulta
-				$sql = "SELECT * FROM ROLES WHERE id=:idRol";
+				$sql = "SELECT * FROM categorias WHERE id=:idCategoria";
 				# Preparar la BBDD
 				$dbh = $this->pdo->prepare($sql);
 				# Vincular los datos
-				$dbh->bindValue('idRol', $idRol);
+				$dbh->bindValue('idCategoria', $idCategoria);
 				# Ejecutar la consulta
 				$dbh->execute();
 				# Crear un objeto del registro la BBDD
-				$rolDb = $dbh->fetch();
+				$CategoriaDb = $dbh->fetch();
 				# Crear el objeto del modelo
-				$rol = new RolDto(
-					$rolDb['id'],
-					$rolDb['Nombre'],					
+				$categoria = new CategoryDto(
+					$CategoriaDb['id'],
+					$CategoriaDb['Nombre'],					
 				);
-				return $rol;
+				return $categoria;
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
 		}
 
-		# Actualizar un Rol
-        public function updateRolDao($userDto){
+		# Actualizar una categoria
+        public function updateCategoryDao($CategoryDto){
             try {
 				// Crear la Consulta
-				$sql = 'UPDATE ROLES SET
-							id = :idRol,
-							Nombre = :nombreRol
-						WHERE id = :idRol';
+				$sql = 'UPDATE categorias SET
+							id = :idCategoria,
+							Nombre = :nombreCategoria
+						WHERE id = :idCategoria';
 
 				// Preparar la BBDD para la consulta
 				$dbh = $this->pdo->prepare($sql);
 
 				// Vincular los datos del objeto a la consulta de Inserción
-				$dbh->bindValue('idRol', $userDto->getCodigoRol());			
-				$dbh->bindValue('nombreRol', $userDto->getNombreRol());
+				$dbh->bindValue('idCategoria', $CategoryDto->getCodigoCategoria());			
+				$dbh->bindValue('nombreCategoria', $CategoryDto->getNombreCategoria());
 
 				// Ejecutar la consulta
 				$dbh->execute();
@@ -98,12 +98,12 @@
 			}
         }
 
-		# Eliminar un Rol
-		public function deleteRolDao($idRol){
+		# Eliminar una categoria
+		public function deleteCategoryDao($idCategoria){
 			try {
-				$sql = 'DELETE FROM ROLES WHERE id = :idRol';
+				$sql = 'DELETE FROM categorias WHERE id = :idCategoria';
 				$dbh = $this->pdo->prepare($sql);
-				$dbh->bindValue('idRol', $idRol);
+				$dbh->bindValue('idCategoria', $idCategoria);
 				$dbh->execute();
 			} catch (Exception $e) {
 				die($e->getMessage());
