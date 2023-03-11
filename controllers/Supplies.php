@@ -62,20 +62,38 @@
 
     }
 
-         // Eliminar Rol
+         // Eliminar Categoria
          public function deleteCategory(){
 			$this->categoryDao->deleteCategoryDao($_GET['idCategoria']);
 			header('Location: ?c=Supplies&a=readCategory');			
 		}
         // Crear Producto
         public function createSupplie(){
-           //programar
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once "views/roles/admin/header.php";
             require_once "views/modules/2_supplies/supplies_create.view.php";
             require_once "views/roles/admin/footer.php";
 
             }
-        
+
+            // Captura los Datos
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+                $SuppliesDto = new SuppliesDto(
+                    $_POST['codigo'], 
+                    $_POST['nombre'],
+                    $_POST['marca'],
+                    $_POST['referencia'],
+                    $_POST['tipo'],
+                    $_POST['factura'],
+                    $_POST['estado'],
+                    $_POST['quien_registra']
+                    $_POST['id_categoria']
+                );                
+                        $this->SuppliesDao->createSuppliesDao($suppliesDto);
+                        header("Location: ?c=Supplies&a=readSupplie");
+                    }
+        }
         // Consultar Productos
         public function readSupplie(){
             // Programar
