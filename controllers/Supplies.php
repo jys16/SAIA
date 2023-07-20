@@ -2,6 +2,9 @@
 
     require_once "models/model_dto/CategoryDto.php";    
     require_once "models/model_dao/CategoryDao.php";
+    require_once "models/model_dto/SuppliesDto.php";    
+    require_once "models/model_dao/SuppliesDao.php";
+
 
     class Supplies{
 
@@ -85,9 +88,9 @@
                     $_POST['marca'],
                     $_POST['referencia'],
                     $_POST['tipo'],
-                    $_POST['factura'],
-                    $_POST['estado'],
-                    $_POST['quien_registra']
+                    $_POST['factura_compra'],
+                    $_POST['estado_producto'],
+                    $_POST['quien_registra'],
                     $_POST['id_categoria']
                 );                
                         $this->SuppliesDao->createSuppliesDao($suppliesDto);

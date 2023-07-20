@@ -26,11 +26,11 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Supplies&a=createSupplie" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="user_perfil">Categoria</label>
-                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <select name="id_categoria" id="id_categoria" class="form-control class-perfil" title="" required>                                
                                <?php
                                
                             //    Conexión a BD
@@ -78,15 +78,53 @@
                         </div>
                         <div id="factura-group" class="form-group col-md-6">
                             <label for="factura-compra">Numero factura</label>
-                            <input type="text" name="factura-compra" class="form-control" id="factura-compra" placeholder="Numero de factura" title="Ingrese un numero de factura valido">
+                            <input type="text" name="factura_compra" class="form-control" id="factura_compra" placeholder="Numero de factura" title="Ingrese un numero de factura valido">
                         </div>
                         <div id="estado_group" class="form-group col-md-6">
                             <label for="estado_insumo">Estado</label>
-                            <input type="text" name="estado_insumo" placeholder="tipo select" class="form-control p-1" id="estado_insumo">
+                            <select name="estado_producto" id="estado_producto" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                               <?php
+                               
+                            //    Conexión a BD
+                               $usuario = 'root';
+                               $password = '';
+                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
+
+                            //    Consulta
+                                $query = $db->prepare("SELECT * FROM estados_del_producto");
+                                $query->execute();
+                                $data = $query->fetchAll();
+                            
+                            // Foreach con select
+
+                            foreach ($data as $valores):
+                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
+                            endforeach;
+                               ?>
+                            </select>
                         </div>
                         <div id="foto_group" class="form-group col-md-6">
                             <label for="documento_usuario">Quien registra</label>
-                            <input type="text" name="documento_usuario" placeholder="tipo select" class="form-control p-1" id="documento_usuario">
+                            <select name="quien_registra" id="quien_registra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                               <?php
+                               
+                            //    Conexión a BD
+                               $usuario = 'root';
+                               $password = '';
+                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
+
+                            //    Consulta
+                                $query = $db->prepare("SELECT * FROM usuarios");
+                                $query->execute();
+                                $data = $query->fetchAll();
+                            
+                            // Foreach con select
+
+                            foreach ($data as $valores):
+                                echo '<option value="'.$valores["documento"].'">'.$valores["nombres"]." ".$valores["apellidos"].'</option>';
+                            endforeach;
+                               ?>
+                            </select>
                         </div>
                     </div>                    
                     <br>

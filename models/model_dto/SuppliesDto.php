@@ -8,10 +8,10 @@
         private $marca;
         private $referencia;
         private $tipo;
-        private $factura;
-        private $estado;
+        private $factura_compra;
+        private $estado_producto;
         private $quien_registra;
-        private $id_categoria
+        private $id_categoria;
 
 
 
@@ -30,14 +30,14 @@
         public function __construct0(){}
 
         // Constructor: con todos los elementos de la tabla
-        public function __construct9($codigo,$nombre,$marca,$referencia,$tipo,$factura,$estado,$quien_registra,$id_categoria){
+        public function __construct9($codigo,$nombre,$marca,$referencia,$tipo,$factura_compra,$estado_producto,$quien_registra,$id_categoria){
 			$this->codigo = $codigo;
             $this->nombre = $nombre;
 			$this->marca = $marca;
 			$this->referencia = $referencia;			
             $this->tipo = $tipo;
-            $this->factura = $factura;
-            $this->estado = $estado;
+            $this->factura_compra = $factura_compra;
+            $this->estado_prodcuto = $estado_producto;
             $this->quien_registra = $quien_registra;
             $this->id_categoria = $id_categoria;
 		}
@@ -86,19 +86,19 @@
         }
 
         // Factura
-        public function setFactura($factura){
-            $this->factura = $factura;
+        public function setFacturaCompra($factura_compra){
+            $this->factura_compra = $factura_compra;
         }
-        public function getFactura(){
-            return $this->factura;
+        public function getFacturaCompra(){
+            return $this->factura_compra;
         }
 
         // Estado
-        public function setEstado($estado){
-            $this->estado = $estado;
+        public function setEstadoProducto($estado_producto){
+            $this->estado_producto = $estado_producto;
         }
-        public function getEstado(){
-            return $this->estado;
+        public function getEstadoProducto(){
+            return $this->estado_producto;
         }
 
          // Quien_registra
