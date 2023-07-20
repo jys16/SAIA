@@ -22,21 +22,21 @@
 							:tipo,
 							:numero_factura,
 							:id_estado_producto,
-							:id_categoria
+							:id_categoria,
                             :documento_usuario
 						)';
-                // Hasta aquí llegue hay que realizar el procedimiento almacenado a la base de datos,revisar tabla estados para crear un foreach
 				// Preparar la BBDD para la consulta
 				$dbh = $this->pdo->prepare($sql);
 				// Vincular los datos del objeto a la consulta de Inserción			
-				$dbh->bindValue('documento',$userDto->getDocumento());
-				$dbh->bindValue('apellidos',$userDto->getApellidosUser());
-				$dbh->bindValue('nombres',$userDto->getNombresUser());
-				$dbh->bindValue('email',$userDto->getCorreoUser());
-				$dbh->bindValue('pass',$userDto->getPass());
-				$dbh->bindValue('telefono',$userDto->getTelefono());
-				$dbh->bindValue('foto',$userDto->getFoto());
-				$dbh->bindValue('id_rol',$userDto->getIdRol());
+				$dbh->bindValue('codigo',$suppliesDto->getCodigo());
+				$dbh->bindValue('nombre',$suppliesDto->getNombre());
+				$dbh->bindValue('marca',$suppliesDto->getMarca());
+				$dbh->bindValue('referencia',$suppliesDto->getReferencia());
+				$dbh->bindValue('tipo',$suppliesDto->getTipo());
+				$dbh->bindValue('numero_factura',$suppliesDto->getFacturaCompra());
+				$dbh->bindValue('id_estado_producto',$suppliesDto->getEstadoProducto());
+				$dbh->bindValue('id_categoria',$suppliesDto->getIdCategoria());
+				$dbh->bindValue('documento_usuario',$suppliesDto->getQuienRegistra());
 				// Ejecutar la consulta
 				$dbh->execute();
 			} catch (Exception $e) {

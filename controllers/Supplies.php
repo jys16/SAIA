@@ -13,6 +13,7 @@
 
         public function __construct(){
             $this->categoryDao = new categoryDao;
+            $this->SuppliesDao = new SuppliesDao;
             // $this->suppliesDao = new SuppliesDao;
         }
         // Cargar pagina inicial
@@ -93,7 +94,7 @@
                     $_POST['quien_registra'],
                     $_POST['id_categoria']
                 );                
-                        $this->SuppliesDao->createSuppliesDao($suppliesDto);
+                        $this->SuppliesDao->createSuppliesDao($SuppliesDto);
                         header("Location: ?c=Supplies&a=readSupplie");
                     }
         }

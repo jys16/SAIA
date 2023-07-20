@@ -37,7 +37,7 @@
 			$this->referencia = $referencia;			
             $this->tipo = $tipo;
             $this->factura_compra = $factura_compra;
-            $this->estado_prodcuto = $estado_producto;
+            $this->estado_producto = $estado_producto;
             $this->quien_registra = $quien_registra;
             $this->id_categoria = $id_categoria;
 		}

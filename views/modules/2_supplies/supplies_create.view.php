@@ -78,7 +78,26 @@
                         </div>
                         <div id="factura-group" class="form-group col-md-6">
                             <label for="factura-compra">Numero factura</label>
-                            <input type="text" name="factura_compra" class="form-control" id="factura_compra" placeholder="Numero de factura" title="Ingrese un numero de factura valido">
+                            <select name="factura_compra" id="factura_compra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                               <?php
+                               
+                            //    Conexión a BD
+                               $usuario = 'root';
+                               $password = '';
+                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
+
+                            //    Consulta
+                                $query = $db->prepare("SELECT * FROM facturas_de_compra");
+                                $query->execute();
+                                $data = $query->fetchAll();
+                            
+                            // Foreach con select
+
+                            foreach ($data as $valores):
+                                echo '<option value="'.$valores["codigo_factura"].'">'.$valores["codigo_factura"].'</option>';
+                            endforeach;
+                               ?>
+                            </select>
                         </div>
                         <div id="estado_group" class="form-group col-md-6">
                             <label for="estado_insumo">Estado</label>
