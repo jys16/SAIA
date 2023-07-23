@@ -30,7 +30,6 @@
                     <thead>
                         <tr>                            
                             <th>Categoria</th>
-                            <!-- <th>Nombre Rol</th> -->
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Marca</th>
@@ -43,28 +42,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php foreach ($users as $user): ?> -->
-                            <tr>
-                                <!-- <td><?php echo $user->getIdRol(); ?></td> -->
-                                <!-- <td></td> -->
-                                <!-- <td><?php echo $user->getDocumento(); ?></td>
-                                <td><?php echo $user->getApellidosUser(); ?></td>
-                                <td><?php echo $user->getNombresUser(); ?></td>
-                                <td><?php echo $user->getCorreoUser(); ?></td>
-                                <td><?php echo $user->getPass(); ?></td>
-                                <td><?php echo $user->getTelefono(); ?></td>
-                                <td><?php echo $user->getFoto(); ?></td> -->
-                                <td class="tabla-acciones">
-                                    <a class="tabla-edit" href="?c=Users&a=updateUser&documento=<?php echo $user->getDocumento(); ?>"><i class="fas fa-edit"></i></a>
-                                    <a class="tabla-delete" href="?c=Users&a=deleteUser&documento=<?php echo $user->getDocumento(); ?>" onclick="deleteUser()"><i class="fas fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
-                        <!-- <?php endforeach; ?> -->
+                    <?php foreach ($supplies as $supplie): ?>
+                        <tr>
+                            <td><?php echo $supplie->getIdCategoria(); ?></td>
+                            <td><?php echo $supplie->getCodigo(); ?></td>
+                            <td><?php echo $supplie->getNombre(); ?></td>
+                            <td><?php echo $supplie->getMarca(); ?></td>
+                            <td><?php echo $supplie->getReferencia(); ?></td>
+                            <td><?php echo $supplie->getTipo(); ?></td>
+                            <td><?php echo $supplie->getFacturaCompra(); ?></td>
+                            <td><?php echo $supplie->getEstadoProducto(); ?></td>
+                            <td><?php echo $supplie->getQuienRegistra(); ?></td>
+                            <td class="tabla-acciones">
+                                    <a class="tabla-edit" href="?c=Supplies&a=updateSupplie&codigo=<?php echo $supplie->getCodigo(); ?>"><i class="fas fa-edit"></i></a>
+                                    <a class="tabla-delete" href="?c=Supplies&a=deleteSupplie&codigo=<?php echo $supplie->getCodigo(); ?>" onclick="deleteSupplie()"><i class="fas fa-trash-alt"></i></a>
+                            </td> 
+                        </tr>               
+                    <?php endforeach; ?>
                     </tbody>
                     <tfoot>
                         <tr>
-                        <th>Categoria</th>
-                            <!-- <th>Nombre Rol</th> -->
+                            <th>Categoria</th>
                             <th>Codigo</th>
                             <th>Nombre</th>
                             <th>Marca</th>

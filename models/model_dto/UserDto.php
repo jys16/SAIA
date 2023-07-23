@@ -3,8 +3,6 @@
     class UserDto{
         
         /* ATRIBUTOS */        
-        // private $codigoRol;
-        // private $nombreRol;
         private $documento;
         private $apellidosUser;
         private $nombresUser;
@@ -41,37 +39,6 @@
             $this->foto = $foto;
             $this->id_rol = $id_rol;
 		}
-
-        // Constructor: Con Nombre Rol
-        // public function __construct9($codigoRol,$nombreRol,$documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto){
-		// 	$this->codigoRol = $codigoRol;
-		// 	$this->nombreRol = $nombreRol;
-		// 	$this->documento = $documento;
-        //     $this->apellidosUser = $apellidosUser;
-		// 	$this->nombresUser = $nombresUser;
-		// 	$this->correoUser = $correoUser;
-        //     $this->pass = $pass;
-        //     $this->telefono = $telefono;
-        //     $this->foto = $foto;			
-		// }
-
-        /* MÉTODOS DE ACCESO: SETTER Y GETTERS*/
-        
-        // // Código Rol
-        // public function setCodigoRol($codigoRol){
-        //     $this->codigoRol = $codigoRol;
-        // }
-        // public function getCodigoRol(){
-        //     return $this->codigoRol;
-        // }
-
-        // // Nombre Rol
-        // public function setNombreRol($nombreRol){
-        //     $this->nombreRol = $nombreRol;
-        // }
-        // public function getNombreRol(){
-        //     return $this->nombreRol;
-        // }
 
         // Documento Usuario
         public function setDocumento($documento){

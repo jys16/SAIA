@@ -1,6 +1,6 @@
 <?php
 
-    class SuppliesDto{
+    class SupplieDto{
         
         /* ATRIBUTOS */        
         private $codigo;
@@ -10,8 +10,8 @@
         private $tipo;
         private $factura_compra;
         private $estado_producto;
-        private $quien_registra;
         private $id_categoria;
+        private $quien_registra;
 
 
 
@@ -30,7 +30,7 @@
         public function __construct0(){}
 
         // Constructor: con todos los elementos de la tabla
-        public function __construct9($codigo,$nombre,$marca,$referencia,$tipo,$factura_compra,$estado_producto,$quien_registra,$id_categoria){
+        public function __construct9($codigo,$nombre,$marca,$referencia,$tipo,$factura_compra,$estado_producto,$id_categoria,$quien_registra){
 			$this->codigo = $codigo;
             $this->nombre = $nombre;
 			$this->marca = $marca;
@@ -38,8 +38,8 @@
             $this->tipo = $tipo;
             $this->factura_compra = $factura_compra;
             $this->estado_producto = $estado_producto;
-            $this->quien_registra = $quien_registra;
             $this->id_categoria = $id_categoria;
+            $this->quien_registra = $quien_registra;
 		}
 
         /* MÉTODOS DE ACCESO: SETTER Y GETTERS*/
@@ -101,6 +101,14 @@
             return $this->estado_producto;
         }
 
+         // id_categoria
+         public function setIdCategoria($id_categoria){
+            $this->id_categoria = $id_categoria;
+        }
+        public function getIdCategoria(){
+            return $this->id_categoria;
+        }
+
          // Quien_registra
          public function setQuienRegistra($quien_registra){
             $this->quien_registra = $quien_registra;
@@ -109,13 +117,6 @@
             return $this->quien_registra;
         }
 
-         // id_categoria
-         public function setIdCategoria($id_categoria){
-            $this->id_categoria = $id_categoria;
-        }
-        public function getIdCategoria(){
-            return $this->id_categoria;
-        }
     }
 
 ?>

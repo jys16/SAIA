@@ -2,18 +2,18 @@
 
     require_once "models/model_dto/CategoryDto.php";    
     require_once "models/model_dao/CategoryDao.php";
-    require_once "models/model_dto/SuppliesDto.php";    
-    require_once "models/model_dao/SuppliesDao.php";
+    require_once "models/model_dto/SupplieDto.php";    
+    require_once "models/model_dao/SupplieDao.php";
 
 
     class Supplies{
 
         Private $categoryDao;
-        Private $suppliesDao;
+        Private $supplieDao;
 
         public function __construct(){
             $this->categoryDao = new categoryDao;
-            $this->SuppliesDao = new SuppliesDao;
+            $this->supplieDao = new SupplieDao;
             // $this->suppliesDao = new SuppliesDao;
         }
         // Cargar pagina inicial
@@ -48,7 +48,7 @@
         // Actualizar Categoría
         public function updateCategory(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $categoria = $this->categoryDao->getById($_GET['idCategoria']);
+            $categorias = $this->categoryDao->getById($_GET['idCategoria']);
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/2_supplies/category_update.view.php";
             require_once "views/roles/admin/footer.php";
@@ -83,7 +83,7 @@
             // Captura los Datos
             if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-                $SuppliesDto = new SuppliesDto(
+                $supplieDto = new SupplieDto(
                     $_POST['codigo'], 
                     $_POST['nombre'],
                     $_POST['marca'],
@@ -91,30 +91,49 @@
                     $_POST['tipo'],
                     $_POST['factura_compra'],
                     $_POST['estado_producto'],
-                    $_POST['quien_registra'],
-                    $_POST['id_categoria']
+                    $_POST['id_categoria'],
+                    $_POST['quien_registra']
                 );                
-                        $this->SuppliesDao->createSuppliesDao($SuppliesDto);
+                        $this->supplieDao->createSupplieDao($supplieDto);
                         header("Location: ?c=Supplies&a=readSupplie");
                     }
         }
         // Consultar Productos
         public function readSupplie(){
-            // Programar
+            $supplies = $this->supplieDao->readSupplieDao();
             require_once "views/roles/admin/header.php";
             require_once "views/modules/2_supplies/supplies_read.view.php";
             require_once "views/roles/admin/footer.php";
         }
         // Actualizar Producto
         public function updateSupplie(){
-            // Programar
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $supplies = $this->supplieDao->getById($_GET['codigo']);            
             require_once "views/roles/admin/header.php";
             require_once "views/modules/2_supplies/supplies_update.view.php";
             require_once "views/roles/admin/footer.php";
         }
+            // Método Post
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $supplieDto = new SupplieDto(
+					$_POST['codigo'],
+					$_POST['nombre'],
+					$_POST['marca'],
+					$_POST['referencia'],
+					$_POST['tipo'],
+					$_POST['numero_factura'],
+					$_POST['id_estado_producto'],
+					$_POST['id_categoria'],
+					$_POST['documento_usuario']
+                );
+                $this->supplieDao->updateSupplieDao($supplieDto);
+                header("Location: ?c=Supplies&a=readSupplie");
+        }
+    }        
         // Eliminar Producto
         public function deleteSupplie(){
-            // Programar            
+			$this->supplieDao->deleteSupplieDao($_GET['codigo']);
+			header('Location: ?c=Supplies&a=readSupplie');          
         }
     }
 ?>
