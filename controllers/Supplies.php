@@ -121,10 +121,10 @@
 					$_POST['marca'],
 					$_POST['referencia'],
 					$_POST['tipo'],
-					$_POST['numero_factura'],
-					$_POST['id_estado_producto'],
+					$_POST['factura_compra'],
+					$_POST['estado_producto'],
 					$_POST['id_categoria'],
-					$_POST['documento_usuario']
+					$_POST['quien_registra']
                 );
                 $this->supplieDao->updateSupplieDao($supplieDto);
                 header("Location: ?c=Supplies&a=readSupplie");

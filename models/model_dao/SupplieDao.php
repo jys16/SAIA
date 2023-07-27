@@ -144,7 +144,7 @@
 			}
         }
 
-		# Eliminar un User
+		# Eliminar un Producto
 		public function deleteSupplieDao($codigo){
 			try {
 				$sql = 'DELETE FROM productos WHERE codigo = :codigo';

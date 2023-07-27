@@ -30,7 +30,7 @@
                     <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
-                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" value="<?php echo $users->getIdRol(); ?>" required>                                
                                <?php
                                
                             //    Conexión a BD

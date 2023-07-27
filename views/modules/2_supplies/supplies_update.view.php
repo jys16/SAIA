@@ -29,7 +29,7 @@
                 <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Supplies&a=updateSupplie" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
-                            <label for="user_perfil">Categoria</label>
+                            <label for="categoria">Categoria</label>
                             <select name="id_categoria" id="id_categoria" class="form-control class-perfil" title="" required>                                
                                <?php
                                
@@ -53,32 +53,32 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Codigo</label>
-                            <input name="codigo" id="codigo" type="text" class="form-control" placeholder="Código Insumo" minlength="5" maxlength="15" title="Ingrese un código válido" value="<?php echo $supplie->getCodigo(); ?>" required>
+                            <input name="codigo" id="codigo" type="text" class="form-control" placeholder="Código Insumo" minlength="5" maxlength="15" title="Ingrese un código válido" value="<?php echo $supplies->getCodigo(); ?>" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="insumos_nombres">Nombre</label>
                             <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre insumo" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Nombre(s) Válido(s)" required>
+							title="Ingrese Nombre(s) Válido(s)" value="<?php echo $supplies->getNombre(); ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="insumos_Marca">Marca</label>
                             <input name="marca" type="text" class="form-control" id="marca" placeholder="Marca insumo" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese una marca valida" required>
+							title="Ingrese una marca valida" value="<?php echo $supplies->getMarca(); ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="insumo_referencia">Referencia</label>
                             <input name="referencia" type="text" class="form-control" id="referencia" placeholder="Referencia insumo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese una referencia valida" required>
+							title="Ingrese una referencia valida" value="<?php echo $supplies->getReferencia(); ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="insumo_tipo">Tipo</label>
                             <input name="tipo" type="text" class="form-control" id="tipo" placeholder="Tipo insumo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese un tipo valido" required>
+							title="Ingrese un tipo valido" value="<?php echo $supplies->getTipo(); ?>" required>
                         </div>
                         <div id="factura-group" class="form-group col-md-6">
                             <label for="factura-compra">Numero factura</label>
-                            <select name="factura_compra" id="factura_compra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <select name="factura_compra" id="factura_compra" class="form-control class-perfil" title="" value="<?php echo $supplies->getFacturaCompra(); ?>" required>                                
                                <?php
                                
                             //    Conexión a BD
@@ -101,7 +101,7 @@
                         </div>
                         <div id="estado_group" class="form-group col-md-6">
                             <label for="estado_insumo">Estado</label>
-                            <select name="estado_producto" id="estado_producto" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <select name="estado_producto" id="estado_producto" class="form-control class-perfil" title="Ingrese Un Perfil Válido" value="<?php echo $supplies->getEstadoProducto(); ?>" required>                                
                                <?php
                                
                             //    Conexión a BD
@@ -124,7 +124,7 @@
                         </div>
                         <div id="foto_group" class="form-group col-md-6">
                             <label for="documento_usuario">Quien registra</label>
-                            <select name="quien_registra" id="quien_registra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <select name="quien_registra" id="quien_registra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" value="<?php echo $supplies->getQuienRegistra(); ?>" required>                                
                                <?php
                                
                             //    Conexión a BD
