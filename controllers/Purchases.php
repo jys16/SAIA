@@ -1,6 +1,21 @@
 <?php
+
+require_once "models/model_dto/SupplierDto.php";    
+require_once "models/model_dao/SupplierDao.php";
+require_once "models/model_dto/BuyDto.php";
+require_once "models/model_dao/BuyDao.php";
+
+
     class Purchases{
-        public function __construct(){}
+
+        private $supplierDao;
+        private $buyDao;
+
+        public function __construct(){
+            $this->supplierDao = new SupplierDao;
+            $this->buyDao = new BuyDao;
+        }
+        
         public function index(){
             require_once "views/roles/admin/header.php";
             require_once "views/roles/admin/admin_main.view.php";
@@ -8,13 +23,27 @@
         }        
         // Crear Proveedor
         public function createSupplier(){
-            // Programar
-            require_once "views/roles/admin/header.php";            
-            require_once "views/modules/3_purchases/supplier_create.view.php";
-            require_once "views/roles/admin/footer.php";
+            // Muestra el formulario
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                require_once "views/roles/admin/header.php";            
+                require_once "views/modules/3_purchases/supplier_create.view.php";
+                require_once "views/roles/admin/footer.php";
         }
-        // Consultar Proveedores
-        public function readSupplier(){
+        // Captura los datos
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $supplierDto = new SupplierDto(
+                $_POST['nit'], 
+                $_POST['nombre'],
+                $_POST['direccion'],
+                $_POST['email'],
+                $_POST['telefono']
+            );
+            $this->supplierDao->createSupplier($rolDto);
+            header("Location: ?c=Users&a=readRol");
+        }
+    }
+    // Consultar Proveedores
+    public function readSupplier(){
             // Programar
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/3_purchases/supplier_read.view.php";
