@@ -13,7 +13,7 @@ CREATE PROCEDURE pa_registrar_usuario(
 BEGIN
     INSERT INTO usuarios VALUES (documento, apellidos, nombres, email, pass, telefono, foto, id_rol); 
 END$$ 
-DELIMITER
+
 
 DELIMITER $$
 CREATE PROCEDURE pa_registrar_insumo(
@@ -30,4 +30,15 @@ CREATE PROCEDURE pa_registrar_insumo(
 BEGIN
     INSERT INTO productos VALUES (codigo, nombre, marca, referencia, tipo, numero_factura, id_estado_producto, id_categoria, documento_usuario); 
 END$$ 
-DELIMITER
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_proveedor(
+    IN nit VARCHAR(50),
+	IN nombre VARCHAR(50),
+    IN direccion VARCHAR(80),
+    IN email VARCHAR(100),
+    IN telefono VARCHAR(50)
+	)
+BEGIN
+    INSERT INTO proveedores VALUES (nit, nombre, direccion, email, telefono); 
+END$$ 

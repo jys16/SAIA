@@ -2,8 +2,8 @@
 
 require_once "models/model_dto/SupplierDto.php";    
 require_once "models/model_dao/SupplierDao.php";
-require_once "models/model_dto/BuyDto.php";
-require_once "models/model_dao/BuyDao.php";
+// require_once "models/model_dto/BuyDto.php";
+// require_once "models/model_dao/BuyDao.php";
 
 
     class Purchases{
@@ -13,7 +13,7 @@ require_once "models/model_dao/BuyDao.php";
 
         public function __construct(){
             $this->supplierDao = new SupplierDao;
-            $this->buyDao = new BuyDao;
+            // $this->buyDao = new BuyDao;
         }
         
         public function index(){
@@ -38,13 +38,13 @@ require_once "models/model_dao/BuyDao.php";
                 $_POST['email'],
                 $_POST['telefono']
             );
-            $this->supplierDao->createSupplier($rolDto);
-            header("Location: ?c=Users&a=readRol");
+            $this->supplierDao->createSupplierDao($supplierDto);
+            header("Location: ?c=Purchases&a=readSupplier");
         }
     }
     // Consultar Proveedores
     public function readSupplier(){
-            // Programar
+            $suppliers = $this->supplierDao->readSupplierDao();
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/3_purchases/supplier_read.view.php";
             require_once "views/roles/admin/footer.php";

@@ -26,7 +26,7 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Purchases&a=createSupplier" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="user_perfil">Proveedor</label>
