@@ -45,7 +45,6 @@
                         <?php foreach ($users as $user): ?>
                             <tr>
                                 <td><?php echo $user->getIdRol(); ?></td>
-                                <!-- <td></td> -->
                                 <td><?php echo $user->getDocumento(); ?></td>
                                 <td><?php echo $user->getApellidosUser(); ?></td>
                                 <td><?php echo $user->getNombresUser(); ?></td>

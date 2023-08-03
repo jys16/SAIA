@@ -62,79 +62,70 @@
 		}
 
 		
-		# Obtener Documento
-		public function getById($documento){
+		# Obtener Nit
+		public function getById($nit){
 			try {
 				# Consulta
-				$sql = "SELECT * FROM usuarios WHERE documento=:documento";
+				$sql = "SELECT * FROM proveedores WHERE nit=:nit";
 				# Preparar la BBDD
 				$dbh = $this->pdo->prepare($sql);
 				# Vincular los datos
-				$dbh->bindValue('documento', $documento);
+				$dbh->bindValue('nit', $nit);
 				# Ejecutar la consulta
 				$dbh->execute();
 				# Crear un objeto del registro la BBDD
-				$UserDb = $dbh->fetch();
+				$SupplierDb = $dbh->fetch();
 				# Crear el objeto del modelo
-				$User = new UserDto(
-					$UserDb['documento'],
-					$UserDb['apellidos'],
-					$UserDb['nombres'],
-					$UserDb['email'],
-					$UserDb['pass'],
-					$UserDb['telefono'],
-					$UserDb['foto'],
-					$UserDb['id_rol'],					
+				$Supplier = new SupplierDto(
+					$SupplierDb['nit'],
+					$SupplierDb['nombre'],
+					$SupplierDb['direccion'],
+					$SupplierDb['email'],
+					$SupplierDb['telefono'],					
 				);
-				return $User;
+				return $Supplier;
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
 		}
 
 
-		# Actualizar un User
-        public function updateUserDao($userDto){
+		# Actualizar un Proveedor
+        public function updateSupplierDao($supplierDto){
             try {
 				// Crear la Consulta
-				$sql = 'UPDATE usuarios SET
-							documento = :documento,
-							apellidos = :apellidos,
-							nombres = :nombres,
+				$sql = 'UPDATE proveedores SET
+							nit = :nit,
+							nombre = :nombre,
+							direccion = :direccion,
 							email = :email,
-							pass = :pass,
-							telefono = :telefono,
-							foto = :foto,
-							id_rol = :id_rol
+							telefono = :telefono
 
-						WHERE documento = :documento';
+						WHERE nit = :nit';
 
 				// Preparar la BBDD para la consulta
-				$dbh = $this->pdo->prepare($sql);
+				$dbh = $this->pdo->prepare($sql);		 
 
 				// Vincular los datos del objeto a la consulta de Inserción
-				$dbh->bindValue('documento', $userDto->getDocumento());			
-				$dbh->bindValue('apellidos', $userDto->getApellidosUser());
-				$dbh->bindValue('nombres', $userDto->getNombresUser());			
-				$dbh->bindValue('email', $userDto->getCorreoUser());
-				$dbh->bindValue('pass', $userDto->getPass());			
-				$dbh->bindValue('telefono', $userDto->getTelefono());
-				$dbh->bindValue('foto', $userDto->getFoto());			
-				$dbh->bindValue('id_rol', $userDto->getIdRol());
+				$dbh->bindValue('nit', $supplierDto->getNit());			
+				$dbh->bindValue('nombre', $supplierDto->getNombreSupplier());			
+				$dbh->bindValue('direccion', $supplierDto->getDireccionSupplier());
+				$dbh->bindValue('email', $supplierDto->getCorreoSupplier());			
+				$dbh->bindValue('telefono', $supplierDto->getTelefonoSupplier());
 				// Ejecutar la consulta
 				$dbh->execute();
-                
+
 			} catch (Exception $e) {
 				die($e->getMessage());	
 			}
         }
 
-		# Eliminar un User
-		public function deleteUserDao($documento){
+		# Eliminar un proveedor
+		public function deleteSupplierDao($nit){
 			try {
-				$sql = 'DELETE FROM usuarios WHERE documento = :documento';
+				$sql = 'DELETE FROM proveedores WHERE nit = :nit';
 				$dbh = $this->pdo->prepare($sql);
-				$dbh->bindValue('documento', $documento);
+				$dbh->bindValue('nit', $nit);
 				$dbh->execute();
 			} catch (Exception $e) {
 				die($e->getMessage());

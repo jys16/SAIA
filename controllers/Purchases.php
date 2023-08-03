@@ -51,14 +51,29 @@ require_once "models/model_dao/SupplierDao.php";
         }
         // Actualizar Proveedor
         public function updateSupplier(){
-            // Programar
-            require_once "views/roles/admin/header.php";            
-            require_once "views/modules/3_purchases/supplier_update.view.php";
-            require_once "views/roles/admin/footer.php";
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $suppliers = $this->supplierDao->getById($_GET['nit']);
+                require_once "views/roles/admin/header.php";            
+                require_once "views/modules/3_purchases/supplier_update.view.php";
+                require_once "views/roles/admin/footer.php";
+             }
+            // Método Post
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $supplierDto = new SupplierDto(
+                    $_POST['nit'], 
+                    $_POST['nombre'],
+                    $_POST['direccion'],
+                    $_POST['email'],
+                    $_POST['telefono']
+                );
+                $this->supplierDao->updateSupplierDao($supplierDto);
+                header("Location: ?c=Purchases&a=readSupplier");
+            }
         }
         // Eliminar Proveedor
         public function deleteSupplier(){
-            // Programar            
+            $this->supplierDao->deleteSupplierDao($_GET['nit']);
+			header('Location: ?c=Purchases&a=readSupplier');	             
         }
         // Crear Compra
         public function createBuy(){

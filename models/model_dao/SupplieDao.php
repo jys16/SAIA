@@ -44,7 +44,7 @@
 			}
 		}
 		
-		# Consultar Usuarios
+		# Consultar Insumos
 		public function readSupplieDao(){
 			try {
 				// Crear un Arreglo Vacío
@@ -74,7 +74,7 @@
 		}
 
 		
-		# Obtener Codigo de producto
+		# Obtener Codigo de Insumo
 		public function getById($codigo){
 			try {
 				# Consulta
