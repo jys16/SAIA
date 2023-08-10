@@ -8,3 +8,5 @@ AS SELECT * FROM productos;
 CREATE VIEW vw_proveedores
 AS SELECT * FROM proveedores;
 
+CREATE VIEW vw_facturas_de_compra
+AS SELECT * FROM facturas_de_compra;

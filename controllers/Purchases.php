@@ -2,8 +2,8 @@
 
 require_once "models/model_dto/SupplierDto.php";    
 require_once "models/model_dao/SupplierDao.php";
-// require_once "models/model_dto/BuyDto.php";
-// require_once "models/model_dao/BuyDao.php";
+require_once "models/model_dto/BuyDto.php";
+require_once "models/model_dao/BuyDao.php";
 
 
     class Purchases{
@@ -13,7 +13,7 @@ require_once "models/model_dao/SupplierDao.php";
 
         public function __construct(){
             $this->supplierDao = new SupplierDao;
-            // $this->buyDao = new BuyDao;
+            $this->buyDao = new BuyDao;
         }
         
         public function index(){
@@ -42,13 +42,13 @@ require_once "models/model_dao/SupplierDao.php";
             header("Location: ?c=Purchases&a=readSupplier");
         }
     }
-    // Consultar Proveedores
-    public function readSupplier(){
-            $suppliers = $this->supplierDao->readSupplierDao();
-            require_once "views/roles/admin/header.php";            
-            require_once "views/modules/3_purchases/supplier_read.view.php";
-            require_once "views/roles/admin/footer.php";
-        }
+        // Consultar Proveedores
+        public function readSupplier(){
+                $suppliers = $this->supplierDao->readSupplierDao();
+                require_once "views/roles/admin/header.php";            
+                require_once "views/modules/3_purchases/supplier_read.view.php";
+                require_once "views/roles/admin/footer.php";
+            }
         // Actualizar Proveedor
         public function updateSupplier(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -77,14 +77,31 @@ require_once "models/model_dao/SupplierDao.php";
         }
         // Crear Compra
         public function createBuy(){
-            // Programar
+            // Muestra el Formulario
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/3_purchases/buy_create.view.php";
             require_once "views/roles/admin/footer.php";
         }
+         // Captura los Datos
+         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $buyDto = new BuyDto(
+                $_POST['codigo_factura'], 
+                $_POST['fecha'],
+                $_POST['factura'],
+                $_POST['Valor'],
+                $_POST['nit_proveedor']
+            );                
+
+                    $this->buyDao->createBuyDao($buyDto);
+                    header("Location: ?c=Purchases&a=readBuy");
+                }
+            }
+
         // Consultar Compras
         public function readBuy(){
-            // Programar
+            $buys = $this->buyDao->readBuyDao();
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/3_purchases/buy_read.view.php";
             require_once "views/roles/admin/footer.php";

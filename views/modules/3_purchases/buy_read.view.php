@@ -38,23 +38,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php foreach ($users as $user): ?> -->
+                        <?php foreach ($buys as $buy): ?>
                             <tr>
-                                <!-- <td><?php echo $user->getIdRol(); ?></td> -->
-                                <!-- <td></td> -->
-                                <!-- <td><?php echo $user->getDocumento(); ?></td>
-                                <td><?php echo $user->getApellidosUser(); ?></td>
-                                <td><?php echo $user->getNombresUser(); ?></td>
-                                <td><?php echo $user->getCorreoUser(); ?></td>
-                                <td><?php echo $user->getPass(); ?></td>
-                                <td><?php echo $user->getTelefono(); ?></td>
-                                <td><?php echo $user->getFoto(); ?></td> -->
+                                <td><?php echo $buy->getNitPro(); ?></td>
+                                <td><?php echo $buy->getCodigoFactura(); ?></td>
+                                <td><?php echo $buy->getFecha(); ?></td>
+                                <td><?php echo $buy->getDocFactura(); ?></td>
+                                <td><?php echo $buy->getValor(); ?></td>
+
                                 <td class="tabla-acciones">
-                                    <a class="tabla-edit" href="?c=Users&a=updateUser&documento=<?php echo $user->getDocumento(); ?>"><i class="fas fa-edit"></i></a>
-                                    <a class="tabla-delete" href="?c=Users&a=deleteUser&documento=<?php echo $user->getDocumento(); ?>" onclick="deleteUser()"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="tabla-edit" href="?c=Purchases&a=updateBuy&codigo_factura=<?php echo $buy->getCodigoFactura(); ?>"><i class="fas fa-edit"></i></a>
+                                    <a class="tabla-delete" href="?c=Purchases&a=deleteBuy&codigo_factura=<?php echo $buy->getCodigoFactura(); ?>" onclick="deleteBuy()"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
-                        <!-- <?php endforeach; ?> -->
+                        <?php endforeach; ?>
                     </tbody>
                     <tfoot>
                         <tr>

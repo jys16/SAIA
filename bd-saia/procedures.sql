@@ -42,3 +42,15 @@ CREATE PROCEDURE pa_registrar_proveedor(
 BEGIN
     INSERT INTO proveedores VALUES (nit, nombre, direccion, email, telefono); 
 END$$ 
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_factura_compra(
+    IN codigo_factura VARCHAR(15),
+	IN fecha DATE,
+    IN factura LONGBLOB,
+    IN Valor DOUBLE,
+    IN nit_proveedor VARCHAR(50)
+	)
+BEGIN
+    INSERT INTO facturas_de_compra VALUES (codigo_factura, fecha, factura, Valor, nit_proveedor); 
+END$$ 
