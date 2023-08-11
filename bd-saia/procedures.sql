@@ -54,3 +54,17 @@ CREATE PROCEDURE pa_registrar_factura_compra(
 BEGIN
     INSERT INTO facturas_de_compra VALUES (codigo_factura, fecha, factura, Valor, nit_proveedor); 
 END$$ 
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_clientes(
+    IN documento VARCHAR(30),
+    IN nombres VARCHAR(100),
+	IN apellidos VARCHAR(100),
+    IN email VARCHAR(80),
+    IN direccion VARCHAR(50),
+    IN telefono VARCHAR(25)
+	)
+BEGIN
+    INSERT INTO clientes (documento, nombres, apellidos, email, direccion, telefono)
+    VALUES (documento, nombres, apellidos, email, direccion, telefono);
+END$$

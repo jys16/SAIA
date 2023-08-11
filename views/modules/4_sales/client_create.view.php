@@ -30,31 +30,31 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="">Documento</label>
-                            <input name="documento" id="documento" type="text" class="form-control" placeholder="Código Usuario" minlength="5" maxlength="15" title="Ingrese un código válido" required>
+                            <input name="documento" id="documento" type="text" class="form-control" placeholder="Documento nuevo cliente" minlength="5" maxlength="15" title="Ingrese un documento" require>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="user_nombres">Nombres</label>
+                            <label for="client_nombres">Nombres</label>
                             <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="user_apellidos">Apellidos</label>
+                            <label for="client_apellidos">Apellidos</label>
                             <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Apellidos(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="user_correo">Correo</label>
+                            <label for="client_correo">Correo</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="usuario@correo.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
 							title="Ingrese un correo válido" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="proveedores_direccion">Dirección</label>
+                            <label for="client_direccion">Dirección</label>
                             <input name="direccion" type="text" class="form-control" id="direccion" placeholder="Dirección proveedor" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese una dirección valida" required>
                         </div>
                         <div id="phone_group" class="form-group col-md-6">
-                            <label for="user_phone">Telefono</label>
+                            <label for="client_phone">Telefono</label>
                             <input type="text" name="telefono" class="form-control" id="telefono" placeholder="3134564545" title="Ingrese un telefono valido">
                         </div>
                     </div>                    

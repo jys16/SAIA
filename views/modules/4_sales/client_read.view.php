@@ -18,7 +18,7 @@
                     <h5 class="m-0">Consultar Clientes</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Supplies&a=createSupplie" class="btn btn-primary">Crear Cliente</a>
+                    <a href="?c=Sales&a=createClient" class="btn btn-primary">Crear Cliente</a>
                 </div>
             </div>
         </div>
@@ -32,42 +32,35 @@
                             <th>Documento</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
-                            <th>Marca</th>
                             <th>Correo</th>
                             <th>Dirección</th>
                             <th>Telefono</th>
-                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php foreach ($users as $user): ?> -->
+                         <?php foreach ($clients as $client): ?> 
                             <tr>
-                                <!-- <td><?php echo $user->getIdRol(); ?></td> -->
-                                <!-- <td></td> -->
-                                <!-- <td><?php echo $user->getDocumento(); ?></td>
-                                <td><?php echo $user->getApellidosUser(); ?></td>
-                                <td><?php echo $user->getNombresUser(); ?></td>
-                                <td><?php echo $user->getCorreoUser(); ?></td>
-                                <td><?php echo $user->getPass(); ?></td>
-                                <td><?php echo $user->getTelefono(); ?></td>
-                                <td><?php echo $user->getFoto(); ?></td> -->
+                                 <td><?php echo $client->getDocumento(); ?></td>
+                                <td><?php echo $client->getApellidosClient(); ?></td>
+                                <td><?php echo $client->getNombresClient(); ?></td>
+                                <td><?php echo $client->getCorreoClient(); ?></td>
+                                <td><?php echo $client->getDireccion(); ?></td>
+                                <td><?php echo $client->getTelefono(); ?></td> 
                                 <td class="tabla-acciones">
-                                    <a class="tabla-edit" href="?c=Users&a=updateUser&documento=<?php echo $user->getDocumento(); ?>"><i class="fas fa-edit"></i></a>
-                                    <a class="tabla-delete" href="?c=Users&a=deleteUser&documento=<?php echo $user->getDocumento(); ?>" onclick="deleteUser()"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="tabla-edit" href="?c=Sales&a=updateClient&documento=<?php echo $client->getDocumento(); ?>"><i class="fas fa-edit"></i></a>
+                                    <a class="tabla-delete" href="?c=Sales&a=deleteClient&documento=<?php echo $client->getDocumento(); ?>" onclick="deleteClient()"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
-                        <!-- <?php endforeach; ?> -->
+                         <?php endforeach; ?> 
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>Documento</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
-                            <th>Marca</th>
                             <th>Correo</th>
                             <th>Dirección</th>
                             <th>Telefono</th>
-                            <th>Acciones</th>
                         </tr>
                     </tfoot>
                 </table>
