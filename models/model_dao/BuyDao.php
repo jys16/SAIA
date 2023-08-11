@@ -91,10 +91,10 @@
 
 
 		# Actualizar un Proveedor
-        public function updateSupplierDao($supplierDto){
+        public function updateBuyDao($buyDto){
             try {
 				// Crear la Consulta
-				$sql = 'UPDATE proveedores SET
+				$sql = 'UPDATE facturas_de_compra SET
 							codigo_factura = :codigo_factura,
 							fecha = :fecha,
 							factura = :factura,
@@ -121,7 +121,7 @@
         }
 
 		# Eliminar un proveedor
-		public function deleteBuyDao($nit){
+		public function deleteBuyDao($codigo_factura){
 			try {
 				$sql = 'DELETE FROM facturas_de_compra WHERE codigo_factura = :codigo_factura';
 				$dbh = $this->pdo->prepare($sql);

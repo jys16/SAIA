@@ -26,7 +26,7 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Purchases&a=createBuy" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Purchases&a=updateBuy" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="">Proveedor</label>
@@ -53,22 +53,22 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Codigo</label>
-                            <input name="codigo_factura" id="codigo_factura" type="text" class="form-control" placeholder="Código Factura" minlength="5" maxlength="15" title="Ingrese un código válido" required>
+                            <input name="codigo_factura" id="codigo_factura" type="text" class="form-control" placeholder="Código Factura" minlength="5" maxlength="15" title="Ingrese un código válido" value="<?php echo $buys->getCodigoFactura(); ?>" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="fecha_factura">Fecha</label>
                             <input name="fecha" type="date" class="form-control" id="fecha" placeholder="Fecha registro factura" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese una fecha valida" required>
+							title="Ingrese una fecha valida" value="<?php echo $buys->getFecha(); ?>" required>
                         </div>
                         <div id="factura_group" class="form-group col-md-6">
                             <label for="factura">Factura</label>
-                            <input type="file" name="factura" class="form-control p-1" id="factura" title="suba la factura">
+                            <input type="file" name="factura" class="form-control p-1" id="factura" title="suba la factura" value="<?php echo $buys->getDocFactura(); ?>">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="valor_factura">Valor</label>
                             <input name="Valor" type="number" class="form-control" id="Valor" placeholder="Valor Factura" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese un valor valido" required>
+							title="Ingrese un valor valido" value="<?php echo $buys->getValor(); ?>" required>
                     </div>
                     </div>                    
                     <br>

@@ -108,14 +108,30 @@ require_once "models/model_dao/BuyDao.php";
         }
         // Actualizar Compra
         public function updateBuy(){
-            // Programar
-            require_once "views/roles/admin/header.php";            
-            require_once "views/modules/3_purchases/buy_update.view.php";
-            require_once "views/roles/admin/footer.php";
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $buys = $this->buyDao->getById($_GET['codigo_factura']);
+                require_once "views/roles/admin/header.php";            
+                require_once "views/modules/3_purchases/buy_update.view.php";
+                require_once "views/roles/admin/footer.php";
+            }
+        // Método Post
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $buyDto = new BuyDto(
+                $_POST['codigo_factura'],
+                $_POST['fecha'],
+                $_POST['factura'],
+                $_POST['Valor'],
+                $_POST['nit_proveedor']
+
+            );
+            $this->buyDao->updateBuyDao($buyDto);
+            header("Location: ?c=Purchases&a=readBuy");
+            }
         }
         // Eliminar Compra
         public function deleteBuy(){
-            // Programar            
+            $this->buyDao->deleteBuyDao($_GET['codigo_factura']);
+			header('Location: ?c=Purchases&a=readBuy');	            
         }
     }
 ?>
