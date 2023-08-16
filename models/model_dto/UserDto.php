@@ -11,6 +11,7 @@
         private $telefono;
         private $foto;
         private $id_rol;
+        private $nombre_rol;
 
 
 
@@ -28,7 +29,7 @@
         // Constructor: Vacío
         public function __construct0(){}
 
-        // Constructor: Sin Nombre Rol
+        // Constructor: Usuarios
         public function __construct8($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol){
 			$this->documento = $documento;
             $this->apellidosUser = $apellidosUser;
@@ -38,7 +39,25 @@
             $this->telefono = $telefono;
             $this->foto = $foto;
             $this->id_rol = $id_rol;
+            // $this->nombre_rol = $nombre_rol;
+
 		}
+
+        public function __construct9($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol, $nombre_rol){
+			$this->documento = $documento;
+            $this->apellidosUser = $apellidosUser;
+			$this->nombresUser = $nombresUser;
+			$this->correoUser = $correoUser;			
+            $this->pass = $pass;
+            $this->telefono = $telefono;
+            $this->foto = $foto;
+            $this->id_rol = $id_rol;
+            $this->nombre_rol = $nombre_rol;
+
+		}
+
+
+        
 
         // Documento Usuario
         public function setDocumento($documento){
@@ -103,6 +122,15 @@
         }
         public function getIdRol(){
             return $this->id_rol;
+        }
+        
+          // Nombre rol
+        public function setNombreRol($nombre_rol){
+            $this->id_rol = $id_rol;
+        }
+        
+        public function getNombreRol(){
+            return $this->nombre_rol;
         }
     }
 

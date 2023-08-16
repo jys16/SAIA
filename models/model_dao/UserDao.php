@@ -31,7 +31,7 @@
 				$dbh->bindValue('apellidos',$userDto->getApellidosUser());
 				$dbh->bindValue('nombres',$userDto->getNombresUser());
 				$dbh->bindValue('email',$userDto->getCorreoUser());
-				$dbh->bindValue('pass',$userDto->getPass());
+				$dbh->bindValue('pass', sha1($userDto->getPass()));
 				$dbh->bindValue('telefono',$userDto->getTelefono());
 				$dbh->bindValue('foto',$userDto->getFoto());
 				$dbh->bindValue('id_rol',$userDto->getIdRol());
@@ -60,7 +60,8 @@
 						$user['pass'],
 						$user['telefono'],
 						$user['foto'],
-						$user['id_rol']
+						$user['id_rol'],
+						$user['Nombre']
 						
 					);
 				}
@@ -126,7 +127,7 @@
 				$dbh->bindValue('apellidos', $userDto->getApellidosUser());
 				$dbh->bindValue('nombres', $userDto->getNombresUser());			
 				$dbh->bindValue('email', $userDto->getCorreoUser());
-				$dbh->bindValue('pass', $userDto->getPass());			
+				$dbh->bindValue('pass', sha1($userDto->getPass()));			
 				$dbh->bindValue('telefono', $userDto->getTelefono());
 				$dbh->bindValue('foto', $userDto->getFoto());			
 				$dbh->bindValue('id_rol', $userDto->getIdRol());

@@ -29,8 +29,7 @@
                 <table id="data-tables" class="display nowrap" style="width:100%">
                     <thead>
                         <tr>                            
-                            <th>Codigo Rol</th>
-                            <!-- <th>Nombre Rol</th> -->
+                            <th>Nombre Rol</th>
                             <th>Documento</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
@@ -44,7 +43,7 @@
                     <tbody>
                         <?php foreach ($users as $user): ?>
                             <tr>
-                                <td><?php echo $user->getIdRol(); ?></td>
+                                <td><?php echo $user->getNombreRol(); ?></td>
                                 <td><?php echo $user->getDocumento(); ?></td>
                                 <td><?php echo $user->getApellidosUser(); ?></td>
                                 <td><?php echo $user->getNombresUser(); ?></td>
@@ -61,8 +60,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Codigo Rol</th>
-                            <!-- <th>Nombre Rol</th> -->
+                            <th>Nombre Rol</th>
                             <th>Documento</th>
                             <th>Apellidos</th>
                             <th>Nombres</th>
