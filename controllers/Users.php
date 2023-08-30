@@ -70,31 +70,47 @@
         
         // Crear Usuario
         public function createUser(){
+            // Inicializar el arreglo de errores
+            $errors = [];
+        
             // Muestra el Formulario
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 require_once "views/roles/admin/header.php";
                 require_once "views/modules/1_users/user_create.view.php";            
                 require_once "views/roles/admin/footer.php";
-            }
-            // Captura los Datos
-            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-                $userDto = new UserDto(
-                    $_POST['documento'], 
-                    $_POST['apellidos'],
-                    $_POST['nombres'],
-                    $_POST['email'],
-                    $_POST['pass'],
-                    $_POST['telefono'],
-                    $_POST['foto'],
-                    $_POST['id_rol']
-                );                
-
-                // print_r ($userDto);
-                        $this->userDao->createUserDao($userDto);
-                        header("Location: ?c=Users&a=readUser");
-                    }
+            } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Validar los datos antes de continuar
+        
+                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $errors['email'] = "El correo electrónico no es válido";
                 }
+        
+                // Puedes agregar más validaciones aquí para otros campos
+        
+                // Si hay errores, vuelve a mostrar la vista con los errores
+                if (!empty($errors)) {
+                    require_once "views/roles/admin/header.php";
+                    require_once "views/modules/1_users/user_create.view.php";            
+                    require_once "views/roles/admin/footer.php";
+                } else {
+                    // Si no hay errores, procede con la inserción
+                    $userDto = new UserDto(
+                        $_POST['documento'], 
+                        $_POST['apellidos'],
+                        $_POST['nombres'],
+                        $_POST['email'],
+                        $_POST['pass'],
+                        $_POST['telefono'],
+                        $_POST['foto'],
+                        $_POST['id_rol']
+                    ); 
+        
+                    $this->userDao->createUserDao($userDto);
+                    header("Location: ?c=Users&a=readUser");
+                }
+            }
+        }        
+        
 
         // Consultar Usuarios
         public function readUser(){

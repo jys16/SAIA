@@ -26,7 +26,7 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
+                <form id="formUserCreate" name="formUserCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
@@ -68,7 +68,10 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_correo">Correo</label>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="usuario@correo.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Ingrese una dirección de correo electrónico válida">
+                            <input name="email" type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>" id="email" placeholder="usuario@correo.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Ingrese una dirección de correo electrónico válida">
+                            <?php if (isset($errors['email'])) {
+                                echo '<div class="invalid-feedback">' . $errors['email'] . '</div>';
+                            } ?>
                         </div>
                         <div id="contrasena_us_group" class="form-group col-md-6">
                             <label for="user_contrasena">Contraseña</label>
@@ -90,3 +93,23 @@
                 </form>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $("#formUserCreate").validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        }
+                        // Agrega más reglas para otros campos si es necesario
+                    },
+                    messages: {
+                        email: {
+                            required: "Por favor, ingrese un correo electrónico",
+                            email: "Por favor, ingrese un correo electrónico válido"
+                        }
+                        // Agrega más mensajes de error para otros campos si es necesario
+                    }
+                });
+            });
+        </script>

@@ -6,11 +6,6 @@
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">SAIA system</a>, All Right Reserved. 
                         </div>
-                        <!-- <div class="col-12 col-sm-6 text-center text-sm-end"> -->
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            <!-- Contated By <a href="https://htmlcodex.com">HTML Codex</a> -->
-                        <!-- </br> -->
-                        <!-- Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> -->
                         </div>
                     </div>
                 </div>
@@ -25,7 +20,9 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/lib/chart/chart.min.js"></script>
     <script src="assets/lib/easing/easing.min.js"></script>
@@ -33,14 +30,14 @@
     <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="assets/lib/tempusdominus/js/moment.min.js"></script>
     <script src="assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+     <script src="assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- scripts datatables -->
 
     <script src="assets/js/jquery.slim.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/sweetalert.min.js"></script>
+	<!-- <script src="assets/js/sweetalert.min.js"></script> -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
