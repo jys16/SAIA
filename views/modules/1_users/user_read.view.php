@@ -37,6 +37,7 @@
                             <th>Contraseña</th>
                             <th>Telefono</th>
                             <th>Foto</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -51,6 +52,7 @@
                                 <td><?php echo $user->getPass(); ?></td>
                                 <td><?php echo $user->getTelefono(); ?></td>
                                 <td><?php echo $user->getFoto(); ?></td>
+                                <td><?php echo $user->getUserStatus(); ?></td>
                                 <td class="tabla-acciones">
                                     <a class="tabla-edit" href="?c=Users&a=updateUser&documento=<?php echo $user->getDocumento(); ?>"><i class="fas fa-edit"></i></a>
                                     <a class="tabla-delete" href="?c=Users&a=deleteUser&documento=<?php echo $user->getDocumento(); ?>" onclick="deleteUser()"><i class="fas fa-trash-alt"></i></a>
@@ -68,6 +70,7 @@
                             <th>Contraseña</th>
                             <th>Telefono</th>
                             <th>Foto</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                     </tfoot>

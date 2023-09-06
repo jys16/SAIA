@@ -12,6 +12,7 @@
         private $foto;
         private $id_rol;
         private $nombre_rol;
+        private $estado;
 
 
 
@@ -19,45 +20,52 @@
         /* SOBRECARGA DE CONSTRUCTORES */
         
         // Constructor de Constructores
-		public function __construct(){
-			$a = func_get_args();
-			$i = func_num_args();
-			if (method_exists($this, $f='__construct'.$i)) {
-				call_user_func_array(array($this, $f), $a);
-			}
-		}
+        public function __construct(){
+            $a = func_get_args();
+            $i = func_num_args();
+            if (method_exists($this, $f='__construct'.$i)) {
+                call_user_func_array(array($this, $f), $a);
+            }
+        }
         // Constructor: Vacío
         public function __construct0(){}
 
+        // Constructor: datos login
+        public function __construct2($correoUser,$pass){
+            $this->correoUser = $correoUser;            
+            $this->pass = $pass;
+
+        }
+
+
         // Constructor: Usuarios
-        public function __construct8($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol){
-			$this->documento = $documento;
+        public function __construct9($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol,$estado){
+            $this->documento = $documento;
             $this->apellidosUser = $apellidosUser;
-			$this->nombresUser = $nombresUser;
-			$this->correoUser = $correoUser;			
+            $this->nombresUser = $nombresUser;
+            $this->correoUser = $correoUser;            
             $this->pass = $pass;
             $this->telefono = $telefono;
             $this->foto = $foto;
             $this->id_rol = $id_rol;
-            // $this->nombre_rol = $nombre_rol;
+            $this->estado = $estado;
 
-		}
+        }
 
-        public function __construct9($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol, $nombre_rol){
-			$this->documento = $documento;
+        public function __construct10($documento,$apellidosUser,$nombresUser,$correoUser,$pass,$telefono,$foto,$id_rol,$estado,$nombre_rol){
+            $this->documento = $documento;
             $this->apellidosUser = $apellidosUser;
-			$this->nombresUser = $nombresUser;
-			$this->correoUser = $correoUser;			
+            $this->nombresUser = $nombresUser;
+            $this->correoUser = $correoUser;            
             $this->pass = $pass;
             $this->telefono = $telefono;
             $this->foto = $foto;
             $this->id_rol = $id_rol;
+            $this->estado = $estado;
             $this->nombre_rol = $nombre_rol;
 
-		}
+        }
 
-
-        
 
         // Documento Usuario
         public function setDocumento($documento){
@@ -124,7 +132,17 @@
             return $this->id_rol;
         }
         
-          // Nombre rol
+
+          // estado usuario
+          public function setUserStatus($estado){
+            $this->estado = $estado;
+        }
+        
+        public function getUserStatus(){
+            return $this->estado;
+        }
+
+        // Nombre rol
         public function setNombreRol($nombre_rol){
             $this->id_rol = $id_rol;
         }

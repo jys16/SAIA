@@ -12,7 +12,7 @@ CREATE TABLE Clientes (
   nombres VARCHAR(100) NOT NULL,
   email VARCHAR(150) NULL,
   direccion VARCHAR(80) NULL,
-  Telefono VARCHAR(50) NOT NULL,
+  telefono VARCHAR(50) NOT NULL,
   PRIMARY KEY (documento))
 ENGINE = InnoDB;
 
@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE  Roles (
   id INT(10) NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(25) NOT NULL,
+  nombre VARCHAR(25) NOT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
@@ -77,6 +77,7 @@ CREATE TABLE  Usuarios (
   telefono VARCHAR(25) NULL,
   foto LONGBLOB,
   id_rol INT(10) NOT NULL,
+  estado INT(10) NOT NULL,
   PRIMARY KEY (documento),
   INDEX ind_roles_usuarios (id_rol ASC),
   CONSTRAINT fk_roles_usuarios
@@ -91,7 +92,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE  servicios (
   id INT(15) NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(80) NOT NULL,
+  nombre VARCHAR(80) NOT NULL,
   PRIMARY KEY (id))
 
 ENGINE = InnoDB;
@@ -187,7 +188,7 @@ CREATE TABLE  Facturas_de_compra (
   codigo_factura VARCHAR(15) NOT NULL,
   fecha DATE NOT NULL,
   factura LONGBLOB NOT NULL,
-  Valor FLOAT(50) NOT NULL,
+  valor FLOAT(50) NOT NULL,
   nit_proveedor VARCHAR(50) NOT NULL,
   PRIMARY KEY (codigo_factura),
   INDEX ind_proveedores_facturas_compra (nit_proveedor ASC),
@@ -204,7 +205,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE  estados_del_producto (
   id INT(10) NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(50) NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
@@ -214,7 +215,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE  categorias (
   id INT(10) NOT NULL AUTO_INCREMENT,
-  Nombre VARCHAR(50) NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
   PRIMARY KEY (id))
 ENGINE = InnoDB;
 
@@ -279,3 +280,98 @@ CREATE TABLE  lista_productos_pedidos (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
+
+---------------------------------------
+-- PROCEDIMIENTOS ALMACENADOS
+---------------------------------------
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_usuario(
+    IN documento VARCHAR(30),
+  IN apellidos VARCHAR(100),
+    IN nombres VARCHAR(100),
+    IN email VARCHAR(80),
+    IN pass VARCHAR(50),
+    IN telefono VARCHAR(25),
+    IN foto LONGBLOB,
+    IN id_rol INT(10),
+    IN estado INT(2)
+  )
+BEGIN
+    INSERT INTO usuarios VALUES (documento, apellidos, nombres, email, pass, telefono, foto, id_rol, estado); 
+END$$ 
+
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_insumo(
+    IN codigo VARCHAR(10),
+  IN nombre VARCHAR(100),
+    IN marca VARCHAR(100),
+    IN referencia VARCHAR(50),
+    IN tipo VARCHAR(50),
+    IN numero_factura VARCHAR(15),
+    IN id_estado_producto INT(10),
+    IN id_categoria INT(10),
+    IN documento_usuario VARCHAR(30)
+  )
+BEGIN
+    INSERT INTO productos VALUES (codigo, nombre, marca, referencia, tipo, numero_factura, id_estado_producto, id_categoria, documento_usuario); 
+END$$ 
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_proveedor(
+    IN nit VARCHAR(50),
+  IN nombre VARCHAR(50),
+    IN direccion VARCHAR(80),
+    IN email VARCHAR(100),
+    IN telefono VARCHAR(50)
+  )
+BEGIN
+    INSERT INTO proveedores VALUES (nit, nombre, direccion, email, telefono); 
+END$$ 
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_factura_compra(
+    IN codigo_factura VARCHAR(15),
+  IN fecha DATE,
+    IN factura LONGBLOB,
+    IN Valor DOUBLE,
+    IN nit_proveedor VARCHAR(50)
+  )
+BEGIN
+    INSERT INTO facturas_de_compra VALUES (codigo_factura, fecha, factura, Valor, nit_proveedor); 
+END$$ 
+
+DELIMITER $$
+CREATE PROCEDURE pa_registrar_clientes(
+    IN documento VARCHAR(30),
+    IN nombres VARCHAR(100),
+  IN apellidos VARCHAR(100),
+    IN email VARCHAR(80),
+    IN direccion VARCHAR(50),
+    IN telefono VARCHAR(25)
+  )
+BEGIN
+    INSERT INTO clientes (documento, nombres, apellidos, email, direccion, telefono)
+    VALUES (documento, nombres, apellidos, email, direccion, telefono);
+END$$
+
+---------------------------------------
+-- VISTAS
+---------------------------------------
+
+CREATE VIEW vw_usuarios
+AS SELECT * FROM roles
+INNER JOIN usuarios ON roles.id = usuarios.id_rol;
+
+CREATE VIEW vw_productos
+AS SELECT * FROM productos;
+
+CREATE VIEW vw_proveedores
+AS SELECT * FROM proveedores;
+
+CREATE VIEW vw_facturas_de_compra
+AS SELECT * FROM facturas_de_compra;
+
+CREATE VIEW vw_clientes
+AS SELECT * FROM clientes;

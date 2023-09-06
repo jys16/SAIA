@@ -26,9 +26,9 @@
         <!-- Contenido -->
         <div class="contenido row bg-light m-2 p-2">
             <div class="col p-0 bg-light">
-                <form id="formUserCreate" name="formUserCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
+                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
                     <div class="form-row">
-                    <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
                             <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
                                <?php
@@ -46,7 +46,7 @@
                             // Foreach con select
 
                             foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
+                                echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
                             endforeach;
                                ?>
                             </select>
@@ -59,19 +59,16 @@
                         <div class="form-group col-md-6">
                             <label for="user_nombres">Nombres</label>
                             <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Nombre(s) Válido(s)" required>
+                            title="Ingrese Nombre(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_apellidos">Apellidos</label>
                             <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Apellidos(s) Válido(s)" required>
+                            title="Ingrese Apellidos(s) Válido(s)" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_correo">Correo</label>
-                            <input name="email" type="email" class="form-control <?php echo isset($errors['email']) ? 'is-invalid' : ''; ?>" id="email" placeholder="usuario@correo.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Ingrese una dirección de correo electrónico válida">
-                            <?php if (isset($errors['email'])) {
-                                echo '<div class="invalid-feedback">' . $errors['email'] . '</div>';
-                            } ?>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="usuario@correo.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Ingrese una dirección de correo electrónico válida">
                         </div>
                         <div id="contrasena_us_group" class="form-group col-md-6">
                             <label for="user_contrasena">Contraseña</label>
@@ -86,30 +83,18 @@
                             <label for="user_foto">Foto</label>
                             <input type="file" name="foto" class="form-control p-1" id="foto">
                         </div>
-                    </div>                    
+                        <div class="form-group col-md-6">
+                            <label for="user_perfil">Estado</label>
+                            <select class="form-control" name="estado" id='estado'>
+                                <option value="" selected="" disabled="">Seleccione una opción</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>                   
                     <br>
                         <input type="submit" class="btn btn-secondary mb-2" value="Enviar">
                         <button type="button" id="submit-rol-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
                 </form>
             </div>
         </div>
-        <script>
-            $(document).ready(function() {
-                $("#formUserCreate").validate({
-                    rules: {
-                        email: {
-                            required: true,
-                            email: true
-                        }
-                        // Agrega más reglas para otros campos si es necesario
-                    },
-                    messages: {
-                        email: {
-                            required: "Por favor, ingrese un correo electrónico",
-                            email: "Por favor, ingrese un correo electrónico válido"
-                        }
-                        // Agrega más mensajes de error para otros campos si es necesario
-                    }
-                });
-            });
-        </script>

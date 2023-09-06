@@ -12,13 +12,13 @@
 <body>
     <div class="div__container__login__ingreso">
         <di class="contianer__prueba__login__ingreso">
-            <form action="?c=Dashboard" class="form__login__login__ingreso" method="POST">
+            <form action="" class="form__login__login__ingreso" method="POST">
                 <h1 class="titlle__login">¡Bienvenido!</h1>
                 <img src="assets/img/logoSAIA.png" class="logo__img__login__ingreso">
-                <label name="Login" class="form__input__login__ingreso">Usuario</label>
-                    <input type="text" placeholder="Ingrese Usuario">
+                <label name="Login" class="form__input__login__ingreso">Correo</label>
+                    <input type="text" name='email' id='email' placeholder="Ingrese Usuario">
                 <label name="Password" class="form__input__login__ingreso">Contraseña</label>
-                    <input type="password" placeholder="Ingrese Contraseña">
+                    <input type="password" name='pass' id='pass' placeholder="Ingrese Contraseña">
                 <input type="submit" value="Ingresar" class="button__login__login__ingreso">
                 <a href="#" class="forgot__password__login__ingreso">¿Olvidaste tu Contraseña?</a>
                 <h3 class="footer__copyright__login__ingreso">Derechos reservados &copy; SAIA</h3>

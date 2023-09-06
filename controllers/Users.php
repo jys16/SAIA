@@ -85,7 +85,7 @@
                     $errors['email'] = "El correo electrónico no es válido";
                 }
         
-                // Puedes agregar más validaciones aquí para otros campos
+                //agregar más validaciones aquí para otros campos
         
                 // Si hay errores, vuelve a mostrar la vista con los errores
                 if (!empty($errors)) {
@@ -102,7 +102,8 @@
                         $_POST['pass'],
                         $_POST['telefono'],
                         $_POST['foto'],
-                        $_POST['id_rol']
+                        $_POST['id_rol'],
+                        $_POST['estado']
                     ); 
         
                     $this->userDao->createUserDao($userDto);
@@ -138,7 +139,8 @@
                     $_POST['pass'],
                     $_POST['telefono'],
                     $_POST['foto'],
-                    $_POST['id_rol']
+                    $_POST['id_rol'],
+                    $_POST['estado']
                 );
                 $this->userDao->updateUserDao($userDto);
                 header("Location: ?c=Users&a=readUser");

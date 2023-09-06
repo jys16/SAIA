@@ -41,7 +41,7 @@
 				foreach ($dbh->fetchAll() as $rol) {
 					$rolList[] = new RolDto(
 						$rol['id'],
-						$rol['Nombre']						
+						$rol['nombre']						
 					);
 				}
 				return $rolList;
@@ -66,7 +66,7 @@
 				# Crear el objeto del modelo
 				$rol = new RolDto(
 					$rolDb['id'],
-					$rolDb['Nombre'],					
+					$rolDb['nombre'],					
 				);
 				return $rol;
 			} catch (Exception $e) {

@@ -29,11 +29,6 @@
                 <form id="formRolCreate" name="formRolCreate" class="card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createRol" method="post" novalidate>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="rol_codigo">Código Rol</label>
-                            <input type="text" class="form-control" name="rol_codigo" id="rol_codigo" placeholder="Código" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Nombre(s) Válido(s)" required>
-                        </div>
-                        <div class="form-group col-md-12">
                             <label for="rol_nombre">Nombre Rol</label>
                             <input type="text" class="form-control" name="rol_nombre" id="rol_nombre" placeholder="Nombre" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
 							title="Ingrese Nombre(s) Válido(s)" required>

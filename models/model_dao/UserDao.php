@@ -1,6 +1,5 @@
 <?php 
 	class UserDao{
-		
 		protected $pdo;
 		public function __construct(){
 			try {
@@ -8,7 +7,37 @@
 			} catch (Exception $e) {
 				die($e->getMessage());
 			}
-		}		
+		}
+		
+		# Iniciar Sesión
+		public function login($userDto){
+			$sql = 'SELECT * FROM USUARIOS WHERE
+				email = :correo AND
+				pass = :pass';
+			$dbh = $this->pdo->prepare($sql);
+			$dbh->bindValue('correo', $userDto->getCorreoUser());
+			$dbh->bindValue('pass', sha1($userDto->getPass()));
+			$dbh->execute();
+			$userDb = $dbh->fetch();
+			if ($userDb) {
+				$userDto = new UserDto(
+						$userDb['documento'],
+						$userDb['apellidos'],
+						$userDb['nombres'],
+						$userDb['email'],
+						$userDb['pass'],
+						$userDb['telefono'],
+						$userDb['foto'],
+						$userDb['id_rol'],
+						$userDb['estado']
+				);
+				return $userDto;
+			} else {
+				return false;
+			}
+		}
+
+		
 
 		# Registrar o Crear User
 		public function createUserDao($userDto){
@@ -22,7 +51,8 @@
 							:pass,
 							:telefono,
 							:foto,
-							:id_rol
+							:id_rol,
+							:estado
 						)';
 				// Preparar la BBDD para la consulta
 				$dbh = $this->pdo->prepare($sql);
@@ -35,7 +65,10 @@
 				$dbh->bindValue('telefono',$userDto->getTelefono());
 				$dbh->bindValue('foto',$userDto->getFoto());
 				$dbh->bindValue('id_rol',$userDto->getIdRol());
+				$dbh->bindValue('estado',$userDto->getUserStatus());
+
 				// Ejecutar la consulta
+
 				$dbh->execute();
 			} catch (Exception $e) {
 				die($e->getMessage());	
@@ -61,7 +94,8 @@
 						$user['telefono'],
 						$user['foto'],
 						$user['id_rol'],
-						$user['Nombre']
+						$user['estado'],
+						$user['nombre']
 						
 					);
 				}
@@ -94,7 +128,8 @@
 					$UserDb['pass'],
 					$UserDb['telefono'],
 					$UserDb['foto'],
-					$UserDb['id_rol'],					
+					$UserDb['id_rol'],
+					$UserDb['estado'],					
 				);
 				return $User;
 			} catch (Exception $e) {
@@ -115,7 +150,8 @@
 							pass = :pass,
 							telefono = :telefono,
 							foto = :foto,
-							id_rol = :id_rol
+							id_rol = :id_rol,
+							estado = estado
 
 						WHERE documento = :documento';
 
@@ -131,6 +167,7 @@
 				$dbh->bindValue('telefono', $userDto->getTelefono());
 				$dbh->bindValue('foto', $userDto->getFoto());			
 				$dbh->bindValue('id_rol', $userDto->getIdRol());
+				$dbh->bindValue('estado',$userDto->getUserStatus());
 				// Ejecutar la consulta
 				$dbh->execute();
                 

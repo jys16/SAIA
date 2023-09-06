@@ -59,17 +59,17 @@
                         <div class="form-group col-md-6">
                             <label for="user_nombres">Nombres</label>
                             <input name="nombres" type="text" class="form-control" id="nombres" placeholder="Nombres" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Nombre(s) Válido(s)" value="<?php echo $users->getNombresUser(); ?>" required>
+                            title="Ingrese Nombre(s) Válido(s)" value="<?php echo $users->getNombresUser(); ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_apellidos">Apellidos</label>
                             <input name="apellidos" type="text" class="form-control" id="apellidos" placeholder="Apellidos" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Apellidos(s) Válido(s)" value="<?php echo $users->getApellidosUser(); ?>" required>
+                            title="Ingrese Apellidos(s) Válido(s)" value="<?php echo $users->getApellidosUser(); ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="user_correo">Correo</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="usuario@correo.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese un correo válido" value="<?php echo $users->getCorreoUser(); ?>" required>
+                            title="Ingrese un correo válido" value="<?php echo $users->getCorreoUser(); ?>" required>
                         </div>
                         <div id="contrasena_us_group" class="form-group col-md-6">
                             <label for="user_contrasena">Contraseña</label>
@@ -83,6 +83,14 @@
                         <div id="foto_group" class="form-group col-md-6">
                             <label for="user_foto">Foto</label>
                             <input type="file" name="foto" class="form-control p-1" id="foto" value="<?php echo $users->getFoto(); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_perfil">Perfil</label>
+                            <select class="form-control" name="estado">
+                                <option value="" selected="<?php echo $users->getUserStatus(); ?>" disabled="">Seleccione una opción</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
                         </div>
                     </div>                    
                     <br>
