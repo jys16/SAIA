@@ -46,7 +46,7 @@
                             // Foreach con select
 
                             foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
+                                echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
                             endforeach;
                                ?>
                             </select>
@@ -85,7 +85,7 @@
                             <input type="file" name="foto" class="form-control p-1" id="foto" value="<?php echo $users->getFoto(); ?>">
                         </div>
                         <div class="form-group">
-                            <label for="user_perfil">Perfil</label>
+                            <label for="user_perfil">Estado</label>
                             <select class="form-control" name="estado">
                                 <option value="" selected="<?php echo $users->getUserStatus(); ?>" disabled="">Seleccione una opción</option>
                                 <option value="1">Activo</option>

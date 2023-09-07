@@ -1,10 +1,23 @@
-<?php
+<?php session_start();
+    require_once "models/model_dto/UserDto.php";    
+    require_once "models/model_dao/UserDao.php";
     class Dashboard{
-        public function __construct(){}
+        public function __construct(){
+            if (empty($_SESSION['profile'])) {
+                $_SESSION['profile'] = null;
+                $_SESSION['session'] = null;
+            }
+        }
         public function index(){
-            require_once "views/roles/admin/header.php";
-            require_once "views/roles/admin/admin_main.view.php";
-            // require_once "views/roles/admin/footer.php";
+            if (isset($_SESSION['session'])) {
+                $session = $_SESSION['session'];                
+                $userDto = unserialize($_SESSION['profile']);                
+                require_once "views/roles/" . $session . "/header.php";               
+                require_once "views/roles/admin/admin.view.php";
+                // require_once "views/roles/admin/footer.php";
+            } else {                
+                header("Location:?");
+            }
         }
     }
 ?>

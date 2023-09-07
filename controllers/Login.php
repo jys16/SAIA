@@ -8,6 +8,7 @@
             $this->userDao = new UserDao;
         }
         public function index(){
+            $mensaje = "";
             // Cargar la Vista del Formulario
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 require_once "views/business/login.view.php";
@@ -25,18 +26,31 @@
                 $userDto = $this->userDao->login($userDto);                
                 if ($userDto) {
                     // Validar si es un Administrador Activo
-                    if ($userDto->getUserStatus() == 1) {                        
+                    if ($userDto->getUserStatus() == 1) {
+                        
+                        if ($userDto->getIdRol() == 1) {
+
+                            $_SESSION['session'] = "admin";                            
+                            $_SESSION['rol'] = $userDto;
+
+                    // Validar si es un Vendedor Activo
+                        } elseif ($userDto->getIdRol() ==2) {
+
+                            $_SESSION['session'] = "seller";                            
+                            $_SESSION['rol'] = $userDto;
+
+                        }
                         // Redireccionar al Dashboard
                         $userDto = serialize($userDto);
-                        $_SESSION['userDto'] = $userDto;
+                        $_SESSION['profile'] = $userDto;
                         header('Location: ?c=Dashboard');
                     } else {                        
                         // header('Location: ?');
-                        echo "Error usuario inhabilitado para el login";
+                        $mensaje = "Error usuario inhabilitado para el login";
                         header('Location: ?c=login');
                     }
                 } else {                    
-                    echo "Error usuario o contraseña invalidos";
+                    $mensaje = "Error usuario o contraseña invalidos";
                     header('Location: ?c=login');
                 }
             }
