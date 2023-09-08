@@ -21,7 +21,6 @@
                     $_POST['email'], 
                     $_POST['pass']
                 );                
-                print_r($_POST);
                 // Comprobar en la base de datos
                 $userDto = $this->userDao->login($userDto);                
                 if ($userDto) {
