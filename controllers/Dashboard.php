@@ -3,10 +3,10 @@
     require_once "models/model_dao/UserDao.php";
     class Dashboard{
         public function __construct(){
-            if (empty($_SESSION['profile'])) {
-                $_SESSION['profile'] = null;
-                $_SESSION['session'] = null;
-            }
+            // if (empty($_SESSION['profile'])) {
+            //     $_SESSION['profile'] = null;
+            //     $_SESSION['session'] = null;
+            // }
         }
         public function index(){
                 $session = $_SESSION['session'];                

@@ -42,7 +42,7 @@
                         // Redireccionar al Dashboard
                         $userDto = serialize($userDto);
                         $_SESSION['profile'] = $userDto;
-                        header('Location: ?c=Dashboard');
+                        header('Location: /?c=Dashboard');
                     } else {                        
                         // header('Location: ?');
                         $mensaje = "Error usuario inhabilitado para el login";
