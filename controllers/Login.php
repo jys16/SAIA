@@ -42,15 +42,18 @@
                         // Redireccionar al Dashboard
                         $userDto = serialize($userDto);
                         $_SESSION['profile'] = $userDto;
-                        header('Location: /?c=Dashboard');
+                        echo "Aquí toy verdad";
+                        // header('Location: /?c=Dashboard');
                     } else {                        
                         // header('Location: ?');
-                        $mensaje = "Error usuario inhabilitado para el login";
-                        header('Location: ?c=login');
+                        echo "Aquí toy falso";
+                        // $mensaje = "Error usuario inhabilitado para el login";
+                        // header('Location: ?c=login');
                     }
                 } else {                    
-                    $mensaje = "Error usuario o contraseña invalidos";
-                    header('Location: ?c=login');
+                    echo "Aquí toy falso falso";
+                    // $mensaje = "Error usuario o contraseña invalidos";
+                    // header('Location: ?c=login');
                 }
             }
         }
