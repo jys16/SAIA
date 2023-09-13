@@ -43,7 +43,7 @@
                         $userDto = serialize($userDto);
                         $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
-                        // header('Location: /?c=Dashboard');
+                        header("Location: ?c=Users&a=createRol");
                     } else {                        
                         // header('Location: ?');
                         echo "Aquí toy falso";
