@@ -1,4 +1,5 @@
-<?php 
+<?php
+    require_once "models/DataBase.php";
     require_once "models/model_dto/UserDto.php";    
     require_once "models/model_dao/UserDao.php";
 
