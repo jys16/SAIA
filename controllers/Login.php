@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     require_once "models/DataBase.php";
     require_once "models/model_dto/UserDto.php";    
     require_once "models/model_dao/UserDao.php";
@@ -30,37 +30,36 @@
                         
                         if ($userDto->getIdRol() == 1) {
 
-                            // $_SESSION['session'] = "admin";                            
-                            // $_SESSION['rol'] = $userDto;
+                            $_SESSION['session'] = "admin";                            
+                            $_SESSION['rol'] = $userDto;
                         
 
                     // Validar si es un Vendedor Activo
                         } elseif ($userDto->getIdRol() ==2) {
 
-                            // $_SESSION['session'] = "seller";                            
-                            // $_SESSION['rol'] = $userDto;
+                            $_SESSION['session'] = "seller";                            
+                            $_SESSION['rol'] = $userDto;
 
                         }
                         // Redireccionar al Dashboard
-                        // $userDto = serialize($userDto);
-                        // $_SESSION['profile'] = $userDto;
-                        echo "Aquí toy verdad";
-                        print_r($userDto);                        
-                        echo '<script type="text/javascript">
-                        alert("Probando vamos a proceder a redireccionar");
-                        window.location.assign("?c=Dashboard");
+                        $userDto = serialize($userDto);
+                        $_SESSION['profile'] = $userDto;
+                        // // echo "Aquí toy verdad";
+                        // print_r($userDto);                        
+                        echo '<script type="text/javascript">                        
+                            window.location.assign("?c=Dashboard");
                         </script>';
                         
                     } else {                        
-                        // header('Location: ?');
-                        echo "Aquí toy falso";
-                        // $mensaje = "Error usuario inhabilitado para el login";
-                        // header('Location: ?c=login');
+                        header('Location: ?');
+                        // echo "Aquí toy falso";
+                        $mensaje = "Error usuario inhabilitado para el login";
+                        header('Location: ?c=login');
                     }
                 } else {                    
-                    echo "Aquí toy falso falso";
-                    // $mensaje = "Error usuario o contraseña invalidos";
-                    // header('Location: ?c=login');
+                    // echo "Aquí toy falso falso";
+                    $mensaje = "Error usuario o contraseña invalidos";
+                    header('Location: ?c=login');
                 }
             }
         }

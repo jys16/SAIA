@@ -13,7 +13,6 @@
         private $id_rol;
         private $nombre_rol;
         private $estado;
-        private $pdo;
 
 
 
