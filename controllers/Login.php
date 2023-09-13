@@ -31,6 +31,7 @@
 
                             // $_SESSION['session'] = "admin";                            
                             // $_SESSION['rol'] = $userDto;
+                        
 
                     // Validar si es un Vendedor Activo
                         } elseif ($userDto->getIdRol() ==2) {
@@ -43,7 +44,8 @@
                         // $userDto = serialize($userDto);
                         // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
-                        header("Location: ?c=Users&a=createRol");
+                        print_r($userDto);
+                        header("Location: ?c=kjljUsers&a=createRol");
                     } else {                        
                         // header('Location: ?');
                         echo "Aquí toy falso";
