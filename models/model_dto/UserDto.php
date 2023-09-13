@@ -13,6 +13,7 @@
         private $id_rol;
         private $nombre_rol;
         private $estado;
+        private $pdo;
 
 
 
@@ -21,6 +22,7 @@
         
         // Constructor de Constructores
         public function __construct(){
+            $this->pdo = DataBase::connection();
             $a = func_get_args();
             $i = func_num_args();
             if (method_exists($this, $f='__construct'.$i)) {
