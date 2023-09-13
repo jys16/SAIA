@@ -45,7 +45,8 @@
                         // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
                         print_r($userDto);
-                        header("Location: https://saia.azurewebsites.net/?c=kjljUsers&a=createRol");
+                        header("jajaja");
+                        
                     } else {                        
                         // header('Location: ?');
                         echo "Aquí toy falso";
