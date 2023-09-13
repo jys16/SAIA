@@ -45,7 +45,7 @@
                         // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
                         print_r($userDto);                        
-                        header("jajaja");
+                        header("Location: /?c=Dashboard");
                         
                     } else {                        
                         // header('Location: ?');
