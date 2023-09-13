@@ -31,24 +31,12 @@
                         <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
                             <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
-                               <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
-
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM roles");
-                                $query->execute();
-                                $data = $query->fetchAll();
                             
-                            // Foreach con select
+                             <!-- Foreach con select -->
 
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
-                            endforeach;
-                               ?>
+                             <?php foreach ($roles as $rol): ?>
+                                <option value="<?php echo $rol->getIdRol() ?>"><?php echo $rol->getIdRol() ?></option>';
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
