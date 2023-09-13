@@ -29,19 +29,19 @@
                         
                         if ($userDto->getIdRol() == 1) {
 
-                            $_SESSION['session'] = "admin";                            
-                            $_SESSION['rol'] = $userDto;
+                            // $_SESSION['session'] = "admin";                            
+                            // $_SESSION['rol'] = $userDto;
 
                     // Validar si es un Vendedor Activo
                         } elseif ($userDto->getIdRol() ==2) {
 
-                            $_SESSION['session'] = "seller";                            
-                            $_SESSION['rol'] = $userDto;
+                            // $_SESSION['session'] = "seller";                            
+                            // $_SESSION['rol'] = $userDto;
 
                         }
                         // Redireccionar al Dashboard
-                        $userDto = serialize($userDto);
-                        $_SESSION['profile'] = $userDto;
+                        // $userDto = serialize($userDto);
+                        // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
                         header("Location: ?c=Users&a=createRol");
                     } else {                        
