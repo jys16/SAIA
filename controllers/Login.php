@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php 
     require_once "models/model_dto/UserDto.php";    
     require_once "models/model_dao/UserDao.php";
 
@@ -44,8 +44,7 @@
                         // $userDto = serialize($userDto);
                         // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
-                        print_r($userDto);
-                        $this->userDao->login($userDto);
+                        print_r($userDto);                        
                         header("jajaja");
                         
                     } else {                        
