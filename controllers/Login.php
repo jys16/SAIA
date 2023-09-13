@@ -45,6 +45,7 @@
                         // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
                         print_r($userDto);
+                        $this->userDao->login($userDto);
                         header("jajaja");
                         
                     } else {                        
