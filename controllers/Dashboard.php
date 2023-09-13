@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
     require_once "models/model_dto/UserDto.php";    
     require_once "models/model_dao/UserDao.php";
     class Dashboard{
@@ -9,9 +9,9 @@
             // }
         }
         public function index(){
-                $session = $_SESSION['session'];                
-                $userDto = unserialize($_SESSION['profile']);                
-                require_once "views/roles/" . $session . "/header.php";               
+                // $session = $_SESSION['session'];                
+                // $userDto = unserialize($_SESSION['profile']);                
+                require_once "views/roles/" . "admin" . "/header.php";               
                 require_once "views/roles/admin/admin.view.php";
                 print_r($userDto);
 
