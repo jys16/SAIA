@@ -46,7 +46,10 @@
                         // $_SESSION['profile'] = $userDto;
                         echo "Aquí toy verdad";
                         print_r($userDto);                        
-                        header("Location: hola.html");
+                        echo '<script type="text/javascript">
+                        alert("Probando vamos a proceder a redireccionar");
+                        window.location.assign("success.html");
+                        </script>';
                         
                     } else {                        
                         // header('Location: ?');
