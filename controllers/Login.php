@@ -48,7 +48,7 @@
                         print_r($userDto);                        
                         echo '<script type="text/javascript">
                         alert("Probando vamos a proceder a redireccionar");
-                        window.location.assign("success.html");
+                        window.location.assign("?c=Dashboard");
                         </script>';
                         
                     } else {                        
