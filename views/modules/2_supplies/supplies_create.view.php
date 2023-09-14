@@ -31,24 +31,12 @@
                     <div class="form-group col-md-6">
                             <label for="user_perfil">Categoria</label>
                             <select name="id_categoria" id="id_categoria" class="form-control class-perfil" title="" required>                                
-                               <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
+                            <?php
 
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM categorias");
-                                $query->execute();
-                                $data = $query->fetchAll();
-                            
-                            // Foreach con select
-
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
-                            endforeach;
-                               ?>
+                                foreach ($categorys as $category):
+                                    echo '<option value="'.$category->getCodigoCategoria().'">'.$category->getNombreCategoria().'</option>';
+                                endforeach;
+                            ?>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
@@ -80,67 +68,25 @@
                             <label for="factura-compra">Numero factura</label>
                             <select name="factura_compra" id="factura_compra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
                                <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
-
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM facturas_de_compra");
-                                $query->execute();
-                                $data = $query->fetchAll();
-                            
-                            // Foreach con select
-
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["codigo_factura"].'">'.$valores["codigo_factura"].'</option>';
-                            endforeach;
+                                    foreach ($bills as $bill):
+                                        echo '<option value="'.$bill->getCodigoFactura().'">'.$bill->getCodigoFactura().'</option>';
+                                    endforeach;
                                ?>
                             </select>
                         </div>
                         <div id="estado_group" class="form-group col-md-6">
                             <label for="estado_insumo">Estado</label>
                             <select name="estado_producto" id="estado_producto" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
-                               <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
-
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM estados_del_producto");
-                                $query->execute();
-                                $data = $query->fetchAll();
-                            
-                            // Foreach con select
-
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["Nombre"].'</option>';
-                            endforeach;
-                               ?>
+                             
                             </select>
                         </div>
                         <div id="foto_group" class="form-group col-md-6">
                             <label for="documento_usuario">Quien registra</label>
                             <select name="quien_registra" id="quien_registra" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
                                <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
 
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM usuarios");
-                                $query->execute();
-                                $data = $query->fetchAll();
-                            
-                            // Foreach con select
-
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["documento"].'">'.$valores["nombres"]." ".$valores["apellidos"].'</option>';
+                            foreach ($users as $user):
+                                echo '<option value="'.$user->getDocumento().'">'.$user->getNombresUser()." ".$user->getApellidosUser().'</option>';
                             endforeach;
                                ?>
                             </select>

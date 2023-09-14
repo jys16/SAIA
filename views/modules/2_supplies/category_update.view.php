@@ -31,12 +31,12 @@
                         <div class="form-group col-md-12">
                             <label for="categoria_codigo">Código Categoria</label>
                             <input type="text" class="form-control" name="categoria_codigo" id="categoria_codigo" placeholder="Código Categoria" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Codigo(s) Válido(s)" value="<?php echo $categoria->getCodigoCategoria(); ?>" required>
+							title="Ingrese Codigo(s) Válido(s)" value="<?php echo $categorias->getCodigoCategoria(); ?>" required>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="categoria_nombre">Nombre Categoria</label>
                             <input type="text" class="form-control" name="categoria_nombre" id="categoria_nombre" placeholder="Nombre" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese Nombre(s) Válido(s)" value="<?php echo $categoria->getNombreCategoria(); ?>" required>
+							title="Ingrese Nombre(s) Válido(s)" value="<?php echo $categorias->getNombreCategoria(); ?>" required>
                         </div>
                     </div>
                         <br>                    

@@ -4,17 +4,26 @@
     require_once "models/model_dao/CategoryDao.php";
     require_once "models/model_dto/SupplieDto.php";    
     require_once "models/model_dao/SupplieDao.php";
+    require_once "models/model_dto/BuyDto.php";
+    require_once "models/model_dao/BuyDao.php";
+    require_once "models/model_dto/UserDto.php";
+    require_once "models/model_dao/UserDao.php";
+
 
 
     class Supplies{
 
         Private $categoryDao;
         Private $supplieDao;
+        Private $buyDao;
+        Private $userDao;
 
         public function __construct(){
             $this->categoryDao = new categoryDao;
             $this->supplieDao = new SupplieDao;
-            // $this->suppliesDao = new SuppliesDao;
+            $this->buyDao = new BuyDao;
+            $this->buyDao = new UserDao;
+
         }
         // Cargar pagina inicial
         public function index(){
@@ -74,9 +83,15 @@
         // Crear Producto
         public function createSupplie(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            require_once "views/roles/admin/header.php";
-            require_once "views/modules/2_supplies/supplies_create.view.php";
-            require_once "views/roles/admin/footer.php";
+                $categorys = new CategoryDao;
+                $categorys = $categorys->readCategoryDao();
+                $bills = new BuyDao;
+                $bills = $bills->readBuyDao();
+                $users = new UserDao;
+                $users = $users->readUserDao();
+                require_once "views/roles/admin/header.php";
+                require_once "views/modules/2_supplies/supplies_create.view.php";
+                require_once "views/roles/admin/footer.php";
 
             }
 

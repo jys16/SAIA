@@ -41,7 +41,7 @@
 				foreach ($dbh->fetchAll() as $category) {
 					$categoryList[] = new CategoryDto(
 						$category['id'],
-						$category['Nombre']						
+						$category['nombre']						
 					);
 				}
 				return $categoryList; 
@@ -66,7 +66,7 @@
 				# Crear el objeto del modelo
 				$categoria = new CategoryDto(
 					$CategoriaDb['id'],
-					$CategoriaDb['Nombre'],					
+					$CategoriaDb['nombre'],					
 				);
 				return $categoria;
 			} catch (Exception $e) {
@@ -80,7 +80,7 @@
 				// Crear la Consulta
 				$sql = 'UPDATE categorias SET
 							id = :idCategoria,
-							Nombre = :nombreCategoria
+							nombre = :nombreCategoria
 						WHERE id = :idCategoria';
 
 				// Preparar la BBDD para la consulta

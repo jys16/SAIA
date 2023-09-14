@@ -26,7 +26,7 @@
         
         // Código Rol
         public function setCodigoCategoria($codigoCategoria){
-            $this->CodigoCategoria = $codigoCategoria;
+            $this->codigoCategoria = $codigoCategoria;
         }
         public function getCodigoCategoria(){
             return $this->codigoCategoria;
