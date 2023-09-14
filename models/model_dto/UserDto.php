@@ -144,7 +144,7 @@
 
         // Nombre rol
         public function setNombreRol($nombre_rol){
-            $this->id_rol = $id_rol;
+            $this->nombre_rol = $nombre_rol;
         }
         
         public function getNombreRol(){

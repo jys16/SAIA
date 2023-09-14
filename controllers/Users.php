@@ -75,8 +75,8 @@
         
             // Muestra el Formulario
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                $rol = new UserDao;
-                $rol = $rol->readUserDao();
+                $roles = new UserDao;
+                $roles = $roles->readUserDao();
                 require_once "views/roles/admin/header.php";
                 require_once "views/modules/1_users/user_create.view.php";            
                 require_once "views/roles/admin/footer.php";

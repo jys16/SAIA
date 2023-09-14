@@ -34,9 +34,10 @@
                             
                              <!-- Foreach con select -->
 
-                             <?php foreach ($roles as $rol): ?>
-                                <option value="<?php echo $rol->getIdRol() ?>"><?php echo $rol->getIdRol() ?></option>';
+                                 <?php foreach ($roles as $rol) : ?>
+                                        <option value="<?php echo $rol->getIdRol() ?>"><?php echo $rol->getNombreRol() ?></option>
                                 <?php endforeach; ?>
+
                             </select>
                         </div>
                         <div class="form-group col-md-6">
