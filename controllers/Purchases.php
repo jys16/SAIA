@@ -78,6 +78,8 @@ require_once "models/model_dao/BuyDao.php";
         // Crear Compra
         public function createBuy(){
             // Muestra el Formulario
+            $suppliers = new SupplierDao;
+            $suppliers = $suppliers->readSupplierDao();
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             require_once "views/roles/admin/header.php";            
             require_once "views/modules/3_purchases/buy_create.view.php";

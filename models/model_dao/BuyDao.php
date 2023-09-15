@@ -18,7 +18,7 @@
 							:codigo_factura,
 							:fecha,
 							:factura,							
-							:Valor,
+							:valor,
 							:nit_proveedor
 						)';
 				// Preparar la BBDD para la consulta
@@ -27,7 +27,7 @@
 				$dbh->bindValue('codigo_factura',$buyDto->getCodigoFactura());
 				$dbh->bindValue('fecha',$buyDto->getFecha());
 				$dbh->bindValue('factura',$buyDto->getDocFactura());
-				$dbh->bindValue('Valor',$buyDto->getValor());
+				$dbh->bindValue('valor',$buyDto->getValor());
 				$dbh->bindValue('nit_proveedor',$buyDto->getNitPro());
 				// Ejecutar la consulta
 				$dbh->execute();
@@ -50,7 +50,7 @@
 						$buy['codigo_factura'],
 						$buy['fecha'],
 						$buy['factura'],
-						$buy['Valor'],
+						$buy['valor'],
 						$buy['nit_proveedor']
 						
 					);
@@ -80,7 +80,7 @@
 					$BuyDb['codigo_factura'],
 					$BuyDb['fecha'],
 					$BuyDb['factura'],
-					$BuyDb['Valor'],
+					$BuyDb['valor'],
 					$BuyDb['nit_proveedor'],					
 				);
 				return $Buy;
@@ -110,7 +110,7 @@
 				$dbh->bindValue('codigo_factura',$buyDto->getCodigoFactura());
 				$dbh->bindValue('fecha',$buyDto->getFecha());
 				$dbh->bindValue('factura',$buyDto->getDocFactura());
-				$dbh->bindValue('Valor',$buyDto->getValor());
+				$dbh->bindValue('valor',$buyDto->getValor());
 				$dbh->bindValue('nit_proveedor',$buyDto->getNitPro());
 				// Ejecutar la consulta
 				$dbh->execute();
