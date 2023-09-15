@@ -76,7 +76,14 @@
                         </div>
                         <div id="estado_group" class="form-group col-md-6">
                             <label for="estado_insumo">Estado</label>
-                            <select name="estado_producto" id="estado_producto" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                            <select name="estado_producto" id="estado_producto" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required> 
+
+                               <?php
+
+                            foreach ($stateSupplies as $stateSupplie):
+                                echo '<option value="'.$stateSupplie->getIdEstado().'">'.$stateSupplie->getNombreEstado()."'</option>';
+                            endforeach;
+                               ?>                               
                              
                             </select>
                         </div>

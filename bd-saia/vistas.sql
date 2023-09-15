@@ -13,3 +13,6 @@ AS SELECT * FROM facturas_de_compra;
 
 CREATE VIEW vw_clientes
 AS SELECT * FROM clientes;
+
+CREATE VIEW vw_estados_del_producto
+AS SELECT * FROM estados_del_producto;

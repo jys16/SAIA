@@ -13,6 +13,9 @@
         private $id_categoria;
         private $quien_registra;
 
+        private $id_estado;
+        private $nombre_estado;
+
 
 
         
@@ -28,6 +31,11 @@
 		}
         // Constructor: Vacío
         public function __construct0(){}
+
+        public function __construct2($id_estado,$nombre_estado){
+            $this->id_estado = $id_estado;
+            $this->nombre_estado = $nombre_estado;
+        }
 
         // Constructor: con todos los elementos de la tabla
         public function __construct9($codigo,$nombre,$marca,$referencia,$tipo,$factura_compra,$estado_producto,$id_categoria,$quien_registra){
@@ -115,6 +123,22 @@
         }
         public function getQuienRegistra(){
             return $this->quien_registra;
+        }
+
+         // Quien_registra
+        public function setIdEstado($id_estado){
+            $this->id_estado = $id_estado;
+        }
+        public function getIdEstado(){
+            return $this->id_estado;
+        }
+
+         // Quien_registra
+        public function setNombreEstado($nombre_estado){
+            $this->nombre_estado = $nombre_estado;
+        }
+        public function getNombreEstado(){
+            return $this->nombre_estado;
         }
 
     }

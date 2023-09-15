@@ -73,7 +73,28 @@
 			}
 		}
 
-		
+		# Consultar Insumos
+		public function readStateSupplieDao(){
+			try {
+				// Crear un Arreglo Vacío
+				$stateSupplieList = [];
+				// Asignar una consulta al atributo $sql
+				$sql = 'SELECT * FROM VW_ESTADOS_DEL_PRODUCTO;';
+				// Creamos las variable $dbh y le asignamos la conexión y la consulta $sql
+				$dbh = $this->pdo->query($sql);
+				foreach ($dbh->fetchAll() as $stateSupplie) {
+					$stateSupplieList[] = new SupplieDto(
+						$stateSupplie['id'],
+						$stateSupplie['nombre'],
+						
+					);
+				}
+				return $stateSupplieList;
+			} catch (Exception $e) {
+				die($e->getMessage());
+			}
+		}
+
 		# Obtener Codigo de Insumo
 		public function getById($codigo){
 			try {
