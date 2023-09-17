@@ -81,7 +81,7 @@
                                <?php
 
                             foreach ($stateSupplies as $stateSupplie):
-                                echo '<option value="'.$stateSupplie->getIdEstado().'">'.$stateSupplie->getNombreEstado()."'</option>';
+                                echo '<option value="'.$stateSupplie->getIdEstado().'">'.$stateSupplie->getNombreEstado().'</option>';
                             endforeach;
                                ?>                               
                              

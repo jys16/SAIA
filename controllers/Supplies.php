@@ -117,7 +117,6 @@
         }
         // Consultar Productos
         public function readSupplie(){
-            $stateSupplie = $this->supplieDao->readStateSupplieDao();
             $supplies = $this->supplieDao->readSupplieDao();
             require_once "views/roles/admin/header.php";
             require_once "views/modules/2_supplies/supplies_read.view.php";
