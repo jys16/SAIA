@@ -56,14 +56,21 @@
 				foreach ($dbh->fetchAll() as $supplie) {
 					$supplieList[] = new SupplieDto(
 						$supplie['codigo'],
-						$supplie['nombre'],
+						$supplie['nombre'],	
 						$supplie['marca'],
 						$supplie['referencia'],
 						$supplie['tipo'],
 						$supplie['numero_factura'],
 						$supplie['id_estado_producto'],
 						$supplie['id_categoria'],
-						$supplie['documento_usuario']
+						$supplie['documento_usuario'],
+						$supplie['id'],
+						$supplie['nombre_categoria'],
+						$supplie['id_estado'],
+						$supplie['nombre_estado'],
+						$supplie['documento'],
+						$supplie['apellidos'],
+						$supplie['nombres']
 						
 					);
 				}

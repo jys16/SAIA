@@ -28,27 +28,15 @@
             <div class="col p-0 bg-light">
                 <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=updateUser" method="post" novalidate>
                     <div class="form-row">
-                    <div class="form-group col-md-6">
+                   <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
-                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" value="<?php echo $users->getIdRol(); ?>" required>                                
-                               <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
-
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM roles");
-                                $query->execute();
-                                $data = $query->fetchAll();
+                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" value="<?php echo $users->getIdRol(); ?>">                                
                             
-                            // Foreach con select
+                             <!-- Foreach con select -->
+                                <?php foreach ($roles as $rol) : ?>
+                                        <option value="<?php echo $rol->getCodigoRol() ?>"><?php echo $rol->getNombreRol() ?></option>
+                                <?php endforeach; ?>
 
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["id"].'">'.$valores["nombre"].'</option>';
-                            endforeach;
-                               ?>
                             </select>
                         </div>
                         <div class="form-group col-md-6">

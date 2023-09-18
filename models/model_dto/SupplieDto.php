@@ -12,9 +12,13 @@
         private $estado_producto;
         private $id_categoria;
         private $quien_registra;
-
+        private $id;
+        private $nombre_categoria;
         private $id_estado;
         private $nombre_estado;
+        private $documento;
+        private $apellidos;
+        private $nombres;
 
 
 
@@ -32,10 +36,12 @@
         // Constructor: Vacío
         public function __construct0(){}
 
+        // Constructor: con todos los elementos de la tabla
         public function __construct2($id_estado,$nombre_estado){
             $this->id_estado = $id_estado;
             $this->nombre_estado = $nombre_estado;
         }
+
 
         // Constructor: con todos los elementos de la tabla
         public function __construct9($codigo,$nombre,$marca,$referencia,$tipo,$factura_compra,$estado_producto,$id_categoria,$quien_registra){
@@ -49,6 +55,26 @@
             $this->id_categoria = $id_categoria;
             $this->quien_registra = $quien_registra;
 		}
+
+                // Constructor: join para la opción consultar
+        public function __construct16($codigo,$nombre,$marca,$referencia,$tipo,$factura_compra,$estado_producto,$id_categoria,$quien_registra,$id,$nombre_categoria,$id_estado,$nombre_estado,$documento,$apellidos,$nombres){
+            $this->codigo = $codigo;
+            $this->nombre = $nombre;
+            $this->marca = $marca;
+            $this->referencia = $referencia;            
+            $this->tipo = $tipo;
+            $this->factura_compra = $factura_compra;
+            $this->estado_producto = $estado_producto;
+            $this->id_categoria = $id_categoria;
+            $this->quien_registra = $quien_registra;
+            $this->id = $id;
+            $this->nombre_categoria = $nombre_categoria;
+            $this->id_estado = $id_estado;
+            $this->nombre_estado = $nombre_estado;
+            $this->documento = $documento;
+            $this->apellidos = $apellidos;
+            $this->nombres = $nombres;
+        }
 
         /* MÉTODOS DE ACCESO: SETTER Y GETTERS*/
         
@@ -125,7 +151,24 @@
             return $this->quien_registra;
         }
 
-         // Quien_registra
+        // id categoria
+         public function setId($id){
+            $this->id = $id;
+        }
+
+        public function getId(){
+            return $this->id;
+        }        
+
+         // Nombre Categoría
+         public function setNombreCategoria($nombre_categoria){
+            $this->nombre_categoria = $nombre_categoria;
+        }
+        public function getNombreCategoria(){
+            return $this->nombre_categoria;
+        }
+
+        // Id estado del producto
         public function setIdEstado($id_estado){
             $this->id_estado = $id_estado;
         }
@@ -133,12 +176,36 @@
             return $this->id_estado;
         }
 
-         // Quien_registra
+         // Nombre estado del producto
         public function setNombreEstado($nombre_estado){
             $this->nombre_estado = $nombre_estado;
         }
         public function getNombreEstado(){
             return $this->nombre_estado;
+        }
+
+          // Documento de quien registra
+        public function setDocumento($documento){
+            $this->documento = $documento;
+        }
+        public function getDocumento(){
+            return $this->documento;
+        }
+
+          // Apellidos de quien registra
+        public function setApellidos($apellidos){
+            $this->apellidos = $apellidos;
+        }
+        public function getApellidos(){
+            return $this->apellidos;
+        }
+
+          // Nombres de quien registra
+        public function setNombres($nombres){
+            $this->nombres = $nombres;
+        }
+        public function getNombres(){
+            return $this->nombres;
         }
 
     }

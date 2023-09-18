@@ -127,6 +127,8 @@
         public function updateUser(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 $users = $this->userDao->getById($_GET['documento']);
+                $roles = new RolDao;
+                $roles = $roles->readRolDao();
                 require_once "views/roles/admin/header.php";                
                 require_once "views/modules/1_users/user_update.view.php";
                 require_once "views/roles/admin/footer.php";

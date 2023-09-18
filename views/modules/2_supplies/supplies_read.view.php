@@ -44,14 +44,14 @@
                     <tbody>
                     <?php foreach ($supplies as $supplie): ?>
                         <tr>
-                            <td><?php echo $supplie->getIdCategoria(); ?></td>
+                            <td><?php echo $supplie->getNombreCategoria(); ?></td>
                             <td><?php echo $supplie->getCodigo(); ?></td>
                             <td><?php echo $supplie->getNombre(); ?></td>
                             <td><?php echo $supplie->getMarca(); ?></td>
                             <td><?php echo $supplie->getReferencia(); ?></td>
                             <td><?php echo $supplie->getTipo(); ?></td>
                             <td><?php echo $supplie->getFacturaCompra(); ?></td>
-                            <td><?php echo $supplie->getEstadoProducto(); ?></td>
+                            <td><?php echo $supplie->getNombreEstado(); ?></td>
                             <td><?php echo $supplie->getQuienRegistra(); ?></td>
                             <td class="tabla-acciones">
                                     <a class="tabla-edit" href="?c=Supplies&a=updateSupplie&codigo=<?php echo $supplie->getCodigo(); ?>"><i class="fas fa-edit"></i></a>
