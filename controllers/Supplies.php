@@ -125,7 +125,15 @@
         // Actualizar Producto
         public function updateSupplie(){
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $supplies = $this->supplieDao->getById($_GET['codigo']);            
+            $supplies = $this->supplieDao->getById($_GET['codigo']);
+            $categorys = new CategoryDao;
+            $categorys = $categorys->readCategoryDao();
+            $bills = new BuyDao;
+            $bills = $bills->readBuyDao();
+            $stateSupplies = new SupplieDao();
+            $stateSupplies = $stateSupplies->readStateSupplieDao();
+            $users = new UserDao;
+            $users = $users->readUserDao();            
             require_once "views/roles/admin/header.php";
             require_once "views/modules/2_supplies/supplies_update.view.php";
             require_once "views/roles/admin/footer.php";

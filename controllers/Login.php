@@ -41,6 +41,28 @@
                             $_SESSION['rol'] = $userDto;
 
                         }
+
+                        elseif ($userDto->getIdRol() ==3) {
+
+                            $_SESSION['session'] = "purchases";                            
+                            $_SESSION['rol'] = $userDto;
+
+                        }
+
+                        elseif ($userDto->getIdRol() ==4) {
+
+                            $_SESSION['session'] = "admin_users";                            
+                            $_SESSION['rol'] = $userDto;
+
+                        }
+
+                        elseif ($userDto->getIdRol() ==5) {
+
+                            $_SESSION['session'] = "admin_roles";                            
+                            $_SESSION['rol'] = $userDto;
+
+                        }
+
                         // Redireccionar al Dashboard
                         $userDto = serialize($userDto);
                         $_SESSION['profile'] = $userDto;

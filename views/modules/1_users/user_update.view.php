@@ -30,13 +30,13 @@
                     <div class="form-row">
                    <div class="form-group col-md-6">
                             <label for="user_perfil">Perfil</label>
-                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" value="<?php echo $users->getIdRol(); ?>">                                
-                            
-                             <!-- Foreach con select -->
+                            <select name="id_rol" id="id_rol" class="form-control class-perfil" title="Ingrese Un Perfil Válido" required>                                
+                                <!-- Foreach con select -->
                                 <?php foreach ($roles as $rol) : ?>
-                                        <option value="<?php echo $rol->getCodigoRol() ?>"><?php echo $rol->getNombreRol() ?></option>
+                                    <option value="<?php echo $rol->getCodigoRol() ?>" <?php echo ($rol->getCodigoRol()); ?>>
+                                        <?php echo $rol->getNombreRol() ?>
+                                    </option>
                                 <?php endforeach; ?>
-
                             </select>
                         </div>
                         <div class="form-group col-md-6">
