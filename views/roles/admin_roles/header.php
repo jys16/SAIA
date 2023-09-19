@@ -77,7 +77,7 @@
                             <a href="?c=Users&a=readRol" class="dropdown-item">Consultar Roles</a>
                         </div>
                     </div>
-                    
+                        
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Reportes</a>
                         <div class="dropdown-menu bg-transparent border-0">

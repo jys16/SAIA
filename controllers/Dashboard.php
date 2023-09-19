@@ -2,6 +2,8 @@
     require_once "models/model_dto/UserDto.php";    
     require_once "models/model_dao/UserDao.php";
     class Dashboard{
+        private $session;
+
         public function __construct(){
             if (empty($_SESSION['profile'])) {
                 $_SESSION['profile'] = null;

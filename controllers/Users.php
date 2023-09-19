@@ -1,17 +1,18 @@
 <?php    
-
+    require_once "controllers/Session.php";
     require_once "models/model_dto/RolDto.php";    
     require_once "models/model_dao/RolDao.php";
     require_once "models/model_dto/UserDto.php";
     require_once "models/model_dao/UserDao.php";
     
 
-    class Users{
+    class Users extends Session{
         
         private $rolDao;
         private $userDao;
 
         public function __construct(){
+            parent::__construct();
             $this->rolDao = new RolDao;
             $this->userDao = new UserDao;
         }
@@ -23,7 +24,7 @@
         public function createRol(){                        
             // Muestra el Formulario
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                require_once "views/roles/admin/header.php";
+                require_once "views/roles/" . $session . "/header.php";
                 require_once "views/modules/1_users/rol_create.view.php";            
                 require_once "views/roles/admin/footer.php";
             }
