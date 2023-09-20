@@ -30,42 +30,42 @@
                         
                         if ($userDto->getIdRol() == 1) {
 
-                            $_SESSION['session'] = "admin";                            
+                            $_SESSION['module'] = "admin";                            
                             $_SESSION['rol'] = $userDto;
                         
 
                     // Validar si es un Vendedor Activo
                         } elseif ($userDto->getIdRol() ==2) {
 
-                            $_SESSION['session'] = "seller";                            
+                            $_SESSION['module'] = "seller";                            
                             $_SESSION['rol'] = $userDto;
 
                         }
 
                         elseif ($userDto->getIdRol() ==3) {
 
-                            $_SESSION['session'] = "purchases";                            
+                            $_SESSION['module'] = "purchases";                            
                             $_SESSION['rol'] = $userDto;
 
                         }
 
                         elseif ($userDto->getIdRol() ==4) {
 
-                            $_SESSION['session'] = "admin_users";                            
+                            $_SESSION['module'] = "admin_users";                            
                             $_SESSION['rol'] = $userDto;
 
                         }
 
                         elseif ($userDto->getIdRol() ==5) {
 
-                            $_SESSION['session'] = "admin_roles";                            
+                            $_SESSION['module'] = "admin_roles";                            
                             $_SESSION['rol'] = $userDto;
 
                         }
 
                         // Redireccionar al Dashboard
                         $userDto = serialize($userDto);
-                        $_SESSION['profile'] = $userDto;
+                        $_SESSION['userDto'] = $userDto;
                         // // echo "Aquí toy verdad";
                         // print_r($userDto);                        
                         echo '<script type="text/javascript">                        
