@@ -11,60 +11,144 @@
             </div>
         </div>
         
-        <!-- Título -->
-        <div class="titulo-contenido m-2 row">
-            <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
-                <div class="col-5 p-0 d-flex justify-content-start align-items-center">
-                    <h5 class="m-0">Ingresar Venta</h5>
-                </div>
-                <div class="col-6 d-flex justify-content-end align-items-center p-0">
-                    <a href="?c=Sales&a=readSale" class="btn btn-primary">Consultar Ventas</a>
-                </div>
-            </div>
-            
-        </div>
-        <!-- Contenido -->
-        <div class="contenido row bg-light m-2 p-2">
-            <div class="col p-0 bg-light">
-                <form id="formRolCreate" name="formRolCreate" class=" form-inline card p-3 bg-info text-white d-lg-flex justify-content-center w-100 border rounded p-2 needs-validation" action="?c=Users&a=createUser" method="post" novalidate>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="">Numero_pedido</label>
-                            <input name="Numero_pedido" id="Numero_pedido" type="text" class="form-control" placeholder="Código Insumo" minlength="5" maxlength="15" title="Ingrese un código válido" required>
-                        </div>
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-md">
 
-                        <div class="form-group col-md-6">
-                            <label for="fecha_pedido">Fecha</label>
-                            <input name="fecha_pedido" type="date" class="form-control" id="fecha_pedido" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Ingrese la fecha del pedido" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="total_si">Total sin iva</label>
-                            <input name="total_si" type="text" class="form-control" id="total_si" placeholder="Total sin iva" pattern="[ a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙñÑ]{2,50}"
-							title="Total sin iva" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="iva">Iva</label>
-                            <input name="iva" type="text" class="form-control" id="iva" placeholder="Referencia insumo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Ingrese una referencia valida" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="total_ci">Total</label>
-                            <input name="total_ci" type="text" class="form-control" id="total_ci" placeholder="Tipo insumo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-							title="Total con iva" required>
-                        </div>
-                        <div id="factura-group" class="form-group col-md-6">
-                            <label for="cliente">Cliente</label>
-                            <input type="text" name="cliente" class="form-control" id="cliente" placeholder="Numero de factura" title="Ingrese un numero de factura valido">
-                        </div>
-                        <div id="foto_group" class="form-group col-md-6">
-                            <label for="productos">lista productos</label>
-                            <input type="text" name="productos" placeholder="tipo select" class="form-control p-1" id="productos">
-                        </div>
-                    </div>                    
-                    <br>
-                        <input type="submit" class="btn btn-secondary mb-2" value="Enviar">
-                        <button type="button" id="submit-rol-create-cancel" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Cerrar</button>
-                </form>
-            </div>
+        <div class="form-group row">
+          <label for="CodigoFactura" class="col-lg-3 col-form-label">Número de factura:</label>
+          <div class="col-lg-3">
+            <input type="text" disabled class="form-control" id="CodigoFactura" value="">
+          </div>
         </div>
+
+
+        <div class="form-group row">
+          <label for="Fecha" class="col-lg-3 col-form-label">Fecha de emisión:</label>
+          <div class="col-lg-3">
+            <input type="date" class="form-control" id="Fecha">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="CodigoCliente" class="col-lg-3 col-form-label">Cliente:</label>
+          <div class="col-lg-3">
+            <select class="form-control" id="CodigoCliente">
+
+              echo "<option value='0'>Seleccionar Cliente</option>";
+              foreach ($clientes as $cli) {
+                echo "<option value='" . $cli['codigo'] . "'>" . $cli['nombre'] . "</option>";
+              }
+              ?>
+            </select>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div class="row mt-4">
+      <div class="col-md">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Código de Artículo</th>
+              <th>Descripción</th>
+              <th class="text-right">Cantidad</th>
+              <th class="text-right">Precio Unitario</th>
+              <th class="text-right">Total</th>
+              <th class="text-right"></th>
+            </tr>
+          </thead>
+          <tbody id="DetalleFactura">
+
+          </tbody>
+        </table>
+        <button type="button" id="btnAgregarProducto" class="btn btn-success">Agregar Producto</button>
+        <button type="button" id="btnTerminarFactura" class="btn btn-success">Terminar Factura</button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- ModalProducto(Agregar) -->
+  <div class="modal fade" id="ModalProducto" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label>Producto:</label>
+            <select class="form-control" id="CodigoProducto">
+             <!--  -->
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label>Cantidad:</label>
+              <input type="number" id="Cantidad" class="form-control" placeholder="" min="1">
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnConfirmarAgregarProducto" class="btn btn-success">Agregar a la factura</button>
+          <button type="button" data-dismiss="modal" class="btn btn-success">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ModalFinFactura -->
+  <div class="modal fade" id="ModalFinFactura" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="max-width: 600px" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Acciones</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnConfirmarFactura" class="btn btn-success">Confirmar Factura</button>
+          <button type="button" id="btnConfirmarImprimirFactura" class="btn btn-success">Confirmar e Imprimir Factura</button>
+          <button type="button" id="btnConfirmarDescartarFactura" class="btn btn-success">Descartar la Factura</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ModalConfirmarBorrar -->
+  <div class="modal fade" id="ModalConfirmarBorrar" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="max-width: 600px" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>¿Realmente quiere borrarlo?</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btnConfirmarBorrado" class="btn btn-success">Confirmar</button>
+          <button type="button" data-dismiss="modal" class="btn btn-success">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

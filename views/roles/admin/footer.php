@@ -4,7 +4,9 @@
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">SAIA system</a>, All Right Reserved. 
+                            &copy; <a href="https://github.com/jys16/SAIA">SAIA system</a>, All Right Reserved.
+                            <br>
+                            <a href="https://github.com/ProfeAlbeiro">Creditos Instructor Albeiro Ramos</a>
                         </div>
                         </div>
                     </div>

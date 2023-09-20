@@ -101,4 +101,26 @@ class Sales
         $this->clientDao->deleteClientDao($_GET['documento']);
         header('Location: ?c=Sales&a=readClient');
     }
+
+    public function createSale(){
+        $userDto = unserialize($_SESSION['userDto']);
+        if (isset($_SESSION['userDto']) && ($userDto->getIdRol() == 1 || $userDto->getIdRol() == 2)) {
+            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                require_once 'views/roles/'.$this->module.'/header.php';
+                require_once "views/modules/4_sales/sale_create.view.php";
+                require_once "views/roles/admin/footer.php";
+            }
+        }
+    }
+
+    // Consultar Clientes
+    public function readSale(){
+        $userDto = unserialize($_SESSION['userDto']);
+        if (isset($_SESSION['userDto']) && ($userDto->getIdRol() == 1 || $userDto->getIdRol() == 2)) {
+        $clients = $this->clientDao->readClientDao();
+            require_once 'views/roles/'.$this->module.'/header.php';
+            require_once "views/modules/4_sales/sale_read.view.php";
+            require_once "views/roles/admin/footer.php";
+        }
+    }
 }
