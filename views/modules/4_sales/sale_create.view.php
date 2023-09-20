@@ -66,8 +66,8 @@
 
           </tbody>
         </table>
-        <button type="button" id="btnAgregarProducto" class="btn btn-success">Agregar Producto</button>
-        <button type="button" id="btnTerminarFactura" class="btn btn-success">Terminar Factura</button>
+        <button type="button" id="btnAgregarProducto" class="btn btn-primary">Agregar Producto</button>
+        <button type="button" id="btnTerminarFactura" class="btn btn-primary">Terminar Factura</button>
       </div>
     </div>
 
