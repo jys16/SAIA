@@ -32,21 +32,9 @@
                             <label for="">Proveedor</label>
                             <select name="nit_proveedor" id="nit_proveedor" class="form-control class-proveedor" title="Ingrese Un Proveedor Válido" required>                                
                                <?php
-                               
-                            //    Conexión a BD
-                               $usuario = 'root';
-                               $password = '';
-                               $db = new PDO('mysql:host=localhost;dbname=saia', $usuario, $password);
 
-                            //    Consulta
-                                $query = $db->prepare("SELECT * FROM proveedores");
-                                $query->execute();
-                                $data = $query->fetchAll();
-                            
-                            // Foreach con select
-
-                            foreach ($data as $valores):
-                                echo '<option value="'.$valores["nit"].'">'.$valores["nombre"].'</option>';
+                            foreach ($suppliers as $supplier):
+                                echo '<option value="'.$supplier->getNit().'">'.$supplier->getNombreSupplier().'</option>';
                             endforeach;
                                ?>
                             </select>

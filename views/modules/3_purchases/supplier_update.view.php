@@ -5,7 +5,7 @@
                     <ol class="breadcrumb rounded-0 m-0 p-2 bg-white">
                         <li class="breadcrumb-item"><a href="?c=Dashboard">Inicio</a></li>
                         <li class="breadcrumb-item">Módulo Compras</li>
-                        <li class="breadcrumb-item active" aria-current="page">Crear Proveedor</li>
+                        <li class="breadcrumb-item active" aria-current="page">Actualizar Proveedor</li>
                     </ol>
                 </div>
             </div>
@@ -15,7 +15,7 @@
         <div class="titulo-contenido m-2 row">
             <div class="col p-2 border-bottom d-flex justify-content-center align-items-center">
                 <div class="col-5 p-0 d-flex justify-content-start align-items-center">
-                    <h5 class="m-0">Crear Proveedor</h5>
+                    <h5 class="m-0">Actualizar Proveedor</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center p-0">
                     <a href="?c=Purchases&a=readSupplier" class="btn btn-primary">Consultar Proveedores</a>
