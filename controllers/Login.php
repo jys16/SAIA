@@ -63,6 +63,13 @@
 
                         }
 
+                        elseif ($userDto->getIdRol() ==6) {
+
+                            $_SESSION['module'] = "inventories";                            
+                            $_SESSION['rol'] = $userDto;
+
+                        }
+
                         // Redireccionar al Dashboard
                         $userDto = serialize($userDto);
                         $_SESSION['userDto'] = $userDto;
