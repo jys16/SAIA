@@ -129,9 +129,12 @@ require_once "models/model_dao/UserDao.php";
 
         // Consultar Compras
         public function readBuy(){
+            $suppliers = new SupplierDao;
+            $suppliers = $suppliers->readSupplierDao();
             $userDto = unserialize($_SESSION['userDto']);
             if (isset($_SESSION['userDto']) && ($userDto->getIdRol() == 1 || $userDto->getIdRol() == 3)) {
                 $buys = $this->buyDao->readBuyDao();
+
                 require_once 'views/roles/'.$this->module.'/header.php';            
                 require_once "views/modules/3_purchases/buy_read.view.php";
                 require_once "views/roles/admin/footer.php";

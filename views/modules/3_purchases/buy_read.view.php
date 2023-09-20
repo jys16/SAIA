@@ -40,7 +40,7 @@
                     <tbody>
                         <?php foreach ($buys as $buy): ?>
                             <tr>
-                                <td><?php echo $buy->getNitPro(); ?></td>
+                                <td><?php foreach ($suppliers as $supplier): echo $supplier->getNombreSupplier(); endforeach;?></td>
                                 <td><?php echo $buy->getCodigoFactura(); ?></td>
                                 <td><?php echo $buy->getFecha(); ?></td>
                                 <td><?php echo $buy->getDocFactura(); ?></td>

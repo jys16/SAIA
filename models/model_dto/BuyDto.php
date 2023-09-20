@@ -23,7 +23,7 @@
         // Constructor: Vacío
         public function __construct0(){}
 
-        // Constructor: proveedores
+        // Constructor: Facturas de compra
         public function __construct5($codigo_factura,$fecha,$doc_factura,$valor,$nit_pro){
 			$this->codigo_factura = $codigo_factura;
 			$this->fecha = $fecha;
